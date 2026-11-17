@@ -1,0 +1,1396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aryan Bhatt · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a high-energy one-pager. A loud, playful hero with orbiting badges and a role ticker; a dark impact band; "many hats" as the signature interaction; then the evidence: LeaderForge, how I run an event, photos, community, stage, journey and bylines. */
+:root{
+  --paper:#F5F6F9;
+  --card:#FFFFFF;
+  --ink:#0E1A3A;
+  --muted:#56607A;
+  --line:#DDE2EC;
+  --accent:#2446B8;
+  --accent-soft:#E7ECFA;
+  --mark:#D9A93C;
+  --hot:#A8761A;
+  --display:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif:"Newsreader", Georgia, serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C0F22; --card:#151A33; --ink:#EEF0F8; --muted:#A4AAC6; --line:#262C4A;
+    --accent:#8BA3FF; --accent-soft:#1B2650; --mark:#E2B85A; --hot:#E2B85A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C0F22; --card:#151A33; --ink:#EEF0F8; --muted:#A4AAC6; --line:#262C4A;
+  --accent:#8BA3FF; --accent-soft:#1B2650; --mark:#E2B85A; --hot:#E2B85A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+img,video{max-width:100%}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.6vw,52px);line-height:1.02}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
+.lede{color:var(--muted);max-width:62ch;margin:12px 0 0;font-size:17px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:6px;background:var(--ink);color:var(--mark)}
+.tag.soft{background:var(--accent-soft);color:var(--accent)}
+section{padding:80px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 13px var(--body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:transform .15s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.plus{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-weight:700;color:var(--muted);transition:transform .2s}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ticks li{position:relative;padding-left:24px}
+.ticks li::before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:10px;border-radius:3px;background:var(--mark)}
+@keyframes fadeup{from{transform:translateY(8px);opacity:.3}to{transform:none;opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--mark));transform-origin:0 50%;transform:scaleX(0);z-index:30}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px;color:var(--ink);text-decoration:none}
+.brand img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid var(--mark)}
+nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:600}
+nav ul a{color:var(--muted);text-decoration:none;padding:4px 0}
+nav ul a:hover,nav ul a.active{color:var(--ink);box-shadow:0 2px 0 var(--mark)}
+@media (max-width:900px){nav ul{display:none}}
+.navcta{font-weight:700;font-size:14px;padding:8px 14px;border-radius:8px;background:var(--ink);color:var(--paper);text-decoration:none}
+
+/* hero */
+.hero{padding:56px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(42px,6vw,76px);line-height:1;font-weight:800;letter-spacing:-.02em}
+.hero h1 .serif{font-weight:500;color:var(--accent)}
+.hero .lede{font-size:18px;margin-top:22px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:10px;background:var(--ink);color:var(--paper);text-decoration:none;border:1px solid var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(14,26,58,.5)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.portrait{position:relative;justify-self:center;width:min(380px,74vw);margin:20px 0}
+.portrait::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--mark);border-radius:20px}
+.portrait img{position:relative;display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 24px 50px -24px rgba(14,26,58,.55)}
+.badge{position:absolute;z-index:2;background:var(--card);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--mark);border-radius:10px;padding:7px 12px;font-size:13px;font-weight:700;box-shadow:0 12px 26px -14px rgba(14,26,58,.45);animation:float 6s ease-in-out infinite;white-space:nowrap}
+.badge small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.b1{top:5%;left:-22%;animation-delay:0s}.b2{top:30%;right:-26%;animation-delay:-1.2s}.b3{top:54%;left:-18%;animation-delay:-2.4s}.b4{bottom:16%;right:-30%;animation-delay:-3.6s}.b5{bottom:-2%;left:-10%;animation-delay:-4.8s}
+@media (max-width:1100px){.b2,.b4{right:-12%}.b1,.b3{left:-12%}}
+@media (max-width:560px){.badge{font-size:11px;padding:5px 9px}.b1,.b3,.b5{left:-6%}.b2,.b4{right:-6%}}
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--card);margin-top:46px}
+.marquee div{display:flex;gap:34px;width:max-content;padding:13px 0;animation:marquee 60s linear infinite;font-family:var(--display);font-weight:700;font-size:16px;color:var(--muted)}
+.marquee span{display:flex;align-items:center;gap:34px;white-space:nowrap}
+.marquee span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--mark)}
+
+/* impact */
+.impact{background:var(--ink);color:var(--paper);padding:64px 0}
+:root[data-theme="dark"] .impact{background:#1A2045}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .impact{background:#1A2045}}
+.impact .kicker{color:color-mix(in srgb,var(--paper) 65%,transparent)}
+.impact h2{color:var(--paper)}
+.imp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+@media (max-width:820px){.imp-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.imp-grid{grid-template-columns:1fr}}
+.imp{border:1px solid color-mix(in srgb,var(--paper) 18%,transparent);border-radius:18px;padding:20px;background:color-mix(in srgb,var(--paper) 5%,transparent)}
+.imp b{display:block;font-family:var(--display);font-size:clamp(34px,4vw,48px);line-height:1;font-weight:800;font-variant-numeric:tabular-nums;color:var(--mark)}
+.imp span{display:block;margin-top:8px;font-size:14px;color:color-mix(in srgb,var(--paper) 78%,transparent)}
+.attr{display:flex;align-items:end;gap:12px;height:60px;margin-top:8px}
+.attr i{display:block;width:34px;border-radius:6px 6px 0 0;background:var(--hot);transition:height 1.2s cubic-bezier(.2,.8,.2,1)}
+.attr i:last-child{background:var(--mark);animation:shrink 1.4s .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes shrink{from{height:100%}to{height:53%}}
+.attr em{font-style:normal;font-size:12px;color:color-mix(in srgb,var(--paper) 70%,transparent);align-self:center}
+
+/* hats */
+.hats{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+@media (max-width:860px){.hats{grid-template-columns:1fr}}
+.hat-list{display:flex;flex-direction:column;gap:8px}
+@media (max-width:860px){.hat-list{flex-direction:row;overflow-x:auto;padding-bottom:6px}}
+.hat{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);font-weight:700;white-space:nowrap;transition:transform .2s,background .2s}
+.hat:hover{transform:translateX(4px)}
+.hat i{width:12px;height:12px;border-radius:50%;background:var(--c);flex:none}
+.hat[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hat:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hat-panel{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--c,var(--accent));border-radius:20px;padding:30px;min-height:330px}
+.hat-panel.in{animation:fadeup .35s ease}
+.hat-panel h3{font-size:clamp(28px,3.4vw,40px);line-height:1.05}
+.hat-panel .one{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted);margin:8px 0 18px}
+.hat-panel a.more{display:inline-block;margin-top:18px;font-weight:700;text-decoration:none}
+
+/* work areas */
+.ladder{display:flex;margin:0 0 26px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.rung{flex:1;padding:16px 18px;border-right:1px solid var(--line)}
+.rung:last-child{border-right:0;background:var(--accent-soft)}
+.rung small{display:block;color:var(--muted);font-size:12px;font-weight:600}
+.rung strong{display:block;font-size:15px;line-height:1.3;margin-top:4px}
+@media (max-width:700px){.ladder{flex-direction:column}.rung{border-right:0;border-bottom:1px solid var(--line)}.rung:last-child{border-bottom:0}}
+.areas{display:grid;grid-template-columns:290px 1fr;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+@media (max-width:860px){.areas{grid-template-columns:1fr}}
+.area-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line);padding:10px}
+@media (max-width:860px){.area-tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}}
+.area-tabs button{all:unset;box-sizing:border-box;cursor:pointer;padding:11px 14px;border-radius:10px;font-weight:600;font-size:15px;display:flex;gap:10px;align-items:baseline;color:var(--muted);white-space:nowrap}
+.area-tabs button span{font-size:12px;font-variant-numeric:tabular-nums}
+.area-tabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--ink)}
+.area-tabs button[aria-selected="true"] span{color:var(--accent)}
+.area-tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.area-panel{padding:28px 32px}
+.area-panel.in{animation:fadeup .35s ease}
+.area-panel h3{font-size:28px;margin-bottom:8px}
+.area-panel p{margin:0 0 16px;color:var(--muted);max-width:64ch}
+
+/* leaderforge */
+#leaderforge{background:linear-gradient(180deg,transparent,var(--accent-soft) 40%,transparent)}
+.lf{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+@media (max-width:860px){.lf{grid-template-columns:1fr}}
+.lf h3{font-size:26px}
+.lf p{color:var(--muted)}
+.lf-net canvas{width:100%;height:340px;display:block;touch-action:none}
+.netcap{margin:6px 0 0;text-align:center;font-size:13px;color:var(--muted);min-height:1.6em}
+.outcome{display:flex;gap:14px;align-items:center;margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--accent-soft)}
+.outcome b{font-family:var(--display);font-size:42px;line-height:1;color:var(--accent);font-weight:800}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media (max-width:900px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+.pillar{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px;min-height:160px;transition:background .25s,transform .25s}
+.pillar:hover{transform:translateY(-4px) rotate(-.5deg)}
+.pillar:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pillar .pn{font-family:var(--display);font-size:34px;font-weight:800;color:var(--hot);line-height:1}
+.pillar b{font-family:var(--display);font-size:22px;line-height:1.1}
+.pillar .pd{font-size:14px;color:var(--muted)}
+.pillar[aria-expanded="true"]{background:var(--ink)}
+.pillar[aria-expanded="true"] b,.pillar[aria-expanded="true"] .pd{color:var(--paper)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.tagcloud{display:flex;flex-wrap:wrap;gap:8px}
+.tagcloud span{font-size:14px;padding:8px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line);transition:transform .2s,border-color .2s}
+.tagcloud span:hover{transform:translateY(-2px) rotate(-1deg);border-color:var(--hot)}
+
+/* playbook */
+.play{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
+.track{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:8px 0 24px}
+@media (max-width:760px){.track{grid-template-columns:1fr}}
+.track::before{content:"";position:absolute;left:4%;right:4%;top:23px;height:4px;border-radius:2px;background:var(--line)}
+@media (max-width:760px){.track::before{display:none}}
+.track .fill{position:absolute;left:4%;top:23px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--hot));transition:width .5s}
+@media (max-width:760px){.track .fill{display:none}}
+.step{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:0 4px}
+@media (max-width:760px){.step{flex-direction:row;text-align:left}}
+.step b{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:var(--card);border:3px solid var(--line);font-family:var(--display);font-size:18px;transition:all .25s;flex:none}
+.step span{font-weight:700;font-size:14px}
+.step[aria-selected="true"] b,.step.done b{border-color:var(--accent);background:var(--accent);color:#fff}
+.step[aria-selected="true"] b{transform:scale(1.12);background:var(--hot);border-color:var(--hot)}
+.step:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:8px}
+.play-body{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.play-body{grid-template-columns:1fr}}
+.play-body > div{border-radius:16px;padding:20px;background:var(--paper)}
+.play-body .kicker{margin-bottom:6px}
+.play-body p{margin:0}
+.play-body .in{animation:fadeup .35s ease}
+
+/* themes */
+#themes{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.theme{min-width:0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:18px;padding:22px 24px}
+.theme[hidden]{display:none}
+.theme h4{font-size:26px}
+.glance{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.glance div{display:flex;flex-direction:column;gap:2px;padding:9px 14px;border-radius:12px;background:var(--accent-soft);min-width:108px}
+.glance b{font-family:var(--display);font-size:20px;line-height:1.1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.glance span{font-size:12px;font-weight:600;color:var(--muted);line-height:1.3}
+.reach{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 22px;font-size:14px;color:var(--muted)}
+.reach b{color:var(--ink)}
+.more{margin-top:12px;border-top:1px solid var(--line)}
+.more summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;font-weight:700;font-size:14px}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:"+";flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:transform .2s}
+.more[open] summary::after{transform:rotate(45deg)}
+.more p,.more ul{margin:0 0 12px;color:var(--muted);font-size:15px;max-width:70ch}
+.more ul{padding-left:20px;display:grid;gap:5px}
+.csr-card .glance{margin:0 0 4px}
+.csr-card .glance div{min-width:96px;padding:8px 12px}
+.theme header p{margin:4px 0 0;color:var(--muted)}
+.strip{display:flex;gap:10px;overflow-x:auto;padding:14px 0 6px;scroll-snap-type:x mandatory}
+.ph{all:unset;cursor:zoom-in;flex:none;height:200px;border-radius:12px;overflow:hidden;scroll-snap-align:start;border:1px solid var(--line)}
+.ph img{height:100%;width:auto;display:block;transition:transform .35s}
+.ph:hover img{transform:scale(1.06)}
+.ph:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.evs{list-style:none;margin:10px 0 0;padding:0;display:grid}
+.ev{border-top:1px solid var(--line)}
+.ev button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;cursor:pointer}
+.ev button:focus-visible{outline:2px solid var(--accent)}
+.ev button b{font-size:15px}
+.ev button small{display:block;color:var(--muted);font-size:12px;font-weight:600}
+.ev p{display:none;margin:0 0 12px;color:var(--muted);max-width:70ch}
+.ev[data-open="true"] p{display:block}
+.ev[data-open="true"] .plus{transform:rotate(45deg)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(8,10,24,.9);display:flex;align-items:center;justify-content:center;gap:12px;padding:20px}
+.lb[hidden]{display:none}
+.lb figure{margin:0;max-width:min(1100px,86vw);text-align:center}
+.lb img{max-width:100%;max-height:78vh;border-radius:12px;display:block;margin:0 auto}
+.lb figcaption{color:#E7E9F2;font-size:14px;margin-top:10px}
+.lb button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:46px;height:46px;font-size:26px;cursor:pointer;flex:none}
+.lb-x{position:absolute;top:16px;right:16px}
+.lb[data-single] #lbp,.lb[data-single] #lbn{visibility:hidden}
+
+/* case study */
+.cs{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:32px;align-items:start}
+@media (max-width:860px){.cs{grid-template-columns:1fr}}
+.gallery{margin:0}
+.frame{border-radius:20px;overflow:hidden;background:var(--paper);border:1px solid var(--line);aspect-ratio:3/4}
+.frame img{width:100%;height:100%;object-fit:contain;display:block}
+.frame.wide img{object-fit:contain;background:#F4F6F9}
+.gallery figcaption{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+.gdots{display:flex;gap:6px;flex:none}
+.gdots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer;transition:width .2s}
+.gdots button[aria-pressed="true"]{background:var(--hot);width:26px;border-radius:6px}
+.cs-body h3{font-family:var(--body);font-size:15px;font-weight:700;margin:20px 0 4px}
+.cs-body p{margin:0;color:var(--muted)}
+.basket{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px}
+@media (max-width:860px){.basket{grid-template-columns:1fr}}
+.basket h3{font-size:28px;margin:6px 0 8px}
+.basket p{margin:0;color:var(--muted)}
+.steps2{list-style:none;margin:0;padding:0;display:grid;gap:8px;align-content:start}
+.steps2 button{all:unset;box-sizing:border-box;display:flex;gap:12px;align-items:center;width:100%;padding:10px 14px;border-radius:12px;border:1px solid var(--line);cursor:pointer;font-weight:600}
+.steps2 button b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:13px;flex:none}
+.steps2 button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.steps2 button[aria-pressed="true"] b{background:var(--accent);color:#fff}
+.stepnote{grid-column:2;color:var(--ink)!important;border-left:3px solid var(--mark);padding-left:12px}
+@media (max-width:860px){.stepnote{grid-column:1}}
+.pull{margin:34px 0 0;font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,32px);line-height:1.3;max-width:34ch;border-left:4px solid var(--hot);padding-left:20px}
+
+/* cards grid */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.cards{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card h3{font-size:24px;line-height:1.1}
+.card p{margin:0;color:var(--muted)}
+.card.dark{background:var(--ink);border-color:var(--ink)}
+.card.dark h3,.card.dark p{color:var(--paper)}
+.card.dark p{opacity:.8}
+.when-tag{font-size:12px;font-weight:700;color:var(--muted)}
+.card.dark .when-tag{color:var(--mark)}
+
+/* community */
+.comm{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:820px){.comm{grid-template-columns:1fr}}
+.comm-col{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.comm-col h3{font-size:24px;margin-bottom:12px}
+.comm-col ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.comm-col li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.comm-col li i{width:12px;height:12px;border-radius:50%;margin-top:6px;background:var(--hot)}
+.comm-col li b{display:block}
+.comm-col li span{font-size:14px;color:var(--muted)}
+
+/* timeline */
+.timeline{position:relative}
+.timeline::before{content:"";position:absolute;left:128px;top:6px;bottom:6px;width:2px;background:var(--line)}
+@media (max-width:640px){.timeline::before{left:7px}}
+.item{display:grid;grid-template-columns:112px 1fr;gap:36px;padding:8px 0;position:relative}
+@media (max-width:640px){.item{grid-template-columns:1fr;gap:4px;padding-left:28px}}
+.item[hidden]{display:none}
+.when{font-size:13px;font-weight:600;color:var(--muted);padding-top:16px;font-variant-numeric:tabular-nums}
+.dot{position:absolute;left:122px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--c)}
+@media (max-width:640px){.dot{left:1px;top:14px}}
+.entry{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.entry button{all:unset;box-sizing:border-box;display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;padding:13px 18px;cursor:pointer}
+.entry button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.entry h3{font-family:var(--body);font-size:16px;font-weight:700;letter-spacing:0}
+.entry .org{font-size:14px;color:var(--muted)}
+.entry[data-open="true"] .plus{transform:rotate(45deg)}
+.detail{padding:0 18px 14px;color:var(--muted);display:none}
+.entry[data-open="true"] .detail{display:block}
+.detail p{margin:0 0 6px}
+.cat{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.c-teach{--c:#7C3AED}.c-work{--c:#3651F0}.c-writing{--c:#E2553F}.c-lead{--c:#0F8A6A}.c-vol{--c:#9333EA}.c-edu{--c:#C98A0E}.c-stage{--c:#DB2777}
+
+/* bylines */
+.clips{columns:2 320px;column-gap:16px}
+.clip{break-inside:avoid;margin:0 0 16px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:14px;padding:16px 18px;transition:transform .2s}
+.clip:hover{transform:rotate(-.6deg) translateY(-2px)}
+.clip h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:22px;line-height:1.25;letter-spacing:0}
+.clip .by{margin-top:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.clip[hidden]{display:none}
+
+/* honours */
+.honours{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:820px){.honours{grid-template-columns:1fr}}
+.honour{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;border-top:6px solid var(--mark)}
+.honour h3{font-size:24px;line-height:1.1;margin:6px 0 8px}
+.honour p{margin:0;color:var(--muted)}
+
+/* skills */
+.skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.skillgrid{grid-template-columns:1fr}}
+.sg{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.sg h3{font-family:var(--body);font-size:14px;font-weight:700;margin-bottom:10px;color:var(--muted);letter-spacing:0}
+.skills{display:flex;flex-wrap:wrap;gap:7px}
+.skill{font-size:14px;padding:6px 11px;border-radius:9px;background:var(--paper);border:1px solid var(--line)}
+.certs{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (max-width:700px){.certs{grid-template-columns:1fr}}
+.cert{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.cert strong{font-size:15px}
+.cert span{font-size:13px;color:var(--muted);white-space:nowrap}
+
+
+.teach{display:grid;gap:22px}
+.anna{margin:0;background:var(--ink);color:var(--paper);border-radius:24px;padding:34px;position:relative;overflow:hidden}
+.anna p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,84px);line-height:1;color:var(--mark);transform-origin:left;animation:wave 3.2s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:rotate(0)}10%{transform:rotate(-1.5deg)}20%{transform:rotate(1.2deg)}30%{transform:rotate(0)}}
+.anna footer{margin-top:16px;max-width:70ch;color:color-mix(in srgb,var(--paper) 82%,transparent);font-size:16px}
+.anna a{color:var(--mark)}
+.sl{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
+@media (max-width:860px){.sl{grid-template-columns:1fr}}
+.sl h3{font-size:28px;line-height:1.1;margin:10px 0 10px}
+.sl p{margin:0 0 10px;color:var(--muted)}
+.did{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.did span{font-size:13px;font-weight:600;padding:6px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.polaroids{position:relative;min-height:400px}
+@media (max-width:520px){.polaroids{min-height:auto;display:grid;gap:14px}}
+.pol{margin:0;background:#fff;padding:10px 10px 8px;border-radius:6px;box-shadow:0 18px 40px -18px rgba(18,22,51,.5);transition:transform .35s,z-index 0s;cursor:default}
+.pol img{display:block;width:100%;border-radius:3px}
+.pol figcaption{font-size:12px;color:#4a4f66;text-align:center;margin-top:6px;font-weight:600}
+.p1{position:absolute;left:0;top:18px;width:66%;transform:rotate(-4deg);z-index:1}
+.p2{position:absolute;right:0;top:0;width:42%;transform:rotate(5deg);z-index:2}
+.pol:hover{transform:rotate(0) scale(1.04);z-index:3}
+@media (max-width:520px){.p1,.p2{position:static;width:100%;transform:none}}
+.cross{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;background:linear-gradient(135deg,var(--accent-soft),var(--card));border:1px solid var(--line);border-radius:24px;padding:28px}
+@media (max-width:860px){.cross{grid-template-columns:1fr}}
+.cross h3{font-size:28px;line-height:1.1;margin:10px 0}
+.cross p{color:var(--muted);margin:0 0 10px}
+.bridge{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:b;align-content:center}
+.bridge li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 12px 52px;counter-increment:b;transition:transform .2s}
+.bridge li:hover{transform:translateX(6px)}
+.bridge li::before{content:counter(b);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--hot);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.bridge li:not(:last-child)::after{content:"";position:absolute;left:26px;bottom:-11px;width:2px;height:10px;background:var(--hot)}
+.bridge b{display:block}
+.bridge span{font-size:13px;color:var(--muted)}
+
+.res{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;align-items:start}
+@media (max-width:900px){.res{grid-template-columns:1fr}}
+.res-main{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
+.res-main h3{font-size:clamp(22px,2.6vw,30px);line-height:1.12;margin:12px 0 10px}
+.res-main p{color:var(--muted);margin:0 0 10px}
+.rh{font-size:18px;margin:22px 0 12px}
+.find{display:grid;gap:12px}
+.frow{display:grid;grid-template-columns:240px minmax(0,1fr) 92px;gap:12px;align-items:center;font-size:14px}
+@media (max-width:560px){.frow{grid-template-columns:1fr auto}.fb{grid-column:1/-1;order:3}}
+.fl{font-weight:600}
+.fb{height:12px;border-radius:6px;background:var(--paper);overflow:hidden;border:1px solid var(--line)}
+.fb i{display:block;height:100%;width:var(--w);border-radius:6px;animation:grow 1.4s cubic-bezier(.2,.8,.2,1) both}
+.fb i.pos{background:var(--hot)}.fb i.neg{background:var(--accent)}.fb i.var{background:var(--mark)}
+@keyframes grow{from{width:0}to{width:var(--w)}}
+.frow b{text-align:right;font-family:var(--display);font-variant-numeric:tabular-nums;font-size:16px;white-space:nowrap}
+.note2{margin-top:14px!important;font-size:15px}
+.team{font-size:14px}
+.res-side{display:grid;gap:14px}
+.res-img{all:unset;cursor:zoom-in;display:block;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);transition:transform .25s}
+.res-img:hover{transform:translateY(-4px) rotate(-.6deg)}
+.res-img:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.res-img img{display:block;width:100%}
+.res-mini{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px 28px}
+.res-mini .res-main{background:none;border:0;border-radius:0;padding:0;flex:1 1 380px;min-width:0}
+.res-mini .team{margin:0}
+.res-icons{display:flex;gap:12px}
+.res-icons .res-img{width:84px;height:84px;border-radius:14px}
+.res-icons .res-img img{width:100%;height:100%;object-fit:cover}
+
+.worked{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.worked ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.worked li{font-family:var(--display);font-weight:700;font-size:15px;color:var(--muted);opacity:.85}
+
+.aw{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:16px}
+@media (max-width:860px){.aw{grid-template-columns:1fr}}
+.aw-card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.aw-card.big{grid-row:span 2}
+.aw-card.wide{grid-column:2}
+@media (max-width:860px){.aw-card.big{grid-row:auto}.aw-card.wide{grid-column:auto}}
+.zoom{all:unset;cursor:zoom-in;display:block;overflow:hidden}
+.zoom:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.zoom img{display:block;width:100%;transition:transform .4s}
+.zoom:hover img{transform:scale(1.03)}
+.aw-card.big .zoom{flex:1;display:grid;place-items:center;background:#0E1A3A;padding:14px}.aw-card.big .zoom img{width:100%;height:auto;object-fit:contain;border-radius:6px}
+.aw-card figcaption{padding:16px 18px;display:grid;gap:6px}
+.aw-card figcaption b{font-family:var(--display);font-size:20px}
+.aw-card figcaption span:not(.tag){color:var(--muted);font-size:14px}
+.aw-card .tag{justify-self:start}
+
+.tattva{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:14px;margin-top:22px;align-items:stretch}
+@media (max-width:700px){.tattva{grid-template-columns:1fr}}
+.tattva .zoom{border-radius:16px;border:1px solid var(--line)}
+.tattva .zoom img{height:auto}
+.tattva-cap{background:var(--ink);color:var(--paper);border-radius:16px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.tattva-cap .tag{background:var(--mark);color:var(--ink);align-self:flex-start}
+.tattva-cap p{margin:0;color:color-mix(in srgb,var(--paper) 85%,transparent)}
+.tgy{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+@media (max-width:900px){.tgy{grid-template-columns:1fr}}
+.tgy-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:12px;align-items:start}
+.tgy-grid .zoom{border-radius:16px;border:1px solid var(--line)}
+.tgy-grid .zoom img{width:100%;height:auto}
+.tgy-col{display:grid;gap:12px}
+
+.tgy-roles{display:grid;gap:10px;align-content:start}
+.role{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--mark);border-radius:12px;padding:14px 16px;transition:transform .2s}
+.role:hover{transform:translateX(4px)}
+.role b{display:block;font-family:var(--display)}
+.role span{font-size:14px;color:var(--muted)}
+.csr{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:860px){.csr{grid-template-columns:1fr}}
+.csr-card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.csr-card .media{display:grid;grid-template-columns:1.1fr 1fr;gap:8px;padding:8px}
+.csr-card video{width:100%;height:auto;max-height:440px;object-fit:contain;border-radius:12px;background:var(--paper);display:block}
+.thumbs{display:grid;gap:8px;align-content:start}
+.thumbs .zoom{border-radius:12px}
+.thumbs .zoom img{width:100%;height:auto}
+.csr-card .media.land{grid-template-columns:1fr;}
+.csr-card .media.land video{height:auto;aspect-ratio:16/9;max-width:520px;width:100%;justify-self:center;object-fit:contain}
+.csr-card .media.land .thumbs{grid-template-rows:none;grid-template-columns:1fr 1fr}
+
+.csr-card .body{padding:14px 20px 20px}
+.csr-card h3{font-size:22px;margin:10px 0 6px}
+.csr-card p{margin:0;color:var(--muted)}
+.zoom.inline{display:inline;color:var(--accent);font-weight:700;text-decoration:underline;cursor:zoom-in}
+.theatre{display:grid;grid-template-columns:1fr 1.1fr;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px}
+@media (max-width:860px){.theatre{grid-template-columns:1fr}}
+.th-photos{display:grid;grid-template-columns:1.5fr 1fr;gap:10px;align-items:start}
+.th-photos .zoom{border-radius:14px}
+.th-photos .zoom img{width:100%;height:auto}
+.th-body h3{font-size:26px;margin:10px 0 8px}
+.th-body p{color:var(--muted);margin:0 0 14px}
+.certs2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.certs2{grid-template-columns:1fr}}
+.certs2 .zoom{border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.certs2 .zoom img{height:auto}
+.certs2 .zoom span{display:block;padding:10px 12px;font-size:13px;color:var(--muted)}
+.certs2 .zoom b{display:block;color:var(--ink);font-size:14px}
+.card.wk video{display:block;margin:0 auto;height:380px;width:auto;max-width:100%;object-fit:contain;border-radius:12px;background:var(--paper)}
+.feat-clip{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:22px;display:grid;gap:14px;justify-items:start}
+.clipimg{display:block;width:100%;border-radius:10px;border:1px solid var(--line);background:#fff;overflow:hidden}
+.clipimg img{display:block;width:100%;height:auto}
+.feat-clip p{margin:0;color:var(--muted);max-width:70ch}
+.honour.grad .zoom{border-radius:12px;margin-bottom:14px}
+.honour.grad .zoom img{height:auto}
+
+.press{display:grid;gap:10px;margin-top:20px}
+.pr{display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none;color:var(--ink);transition:transform .2s,border-color .2s}
+.pr:hover{transform:translateX(4px);border-color:var(--mark)}
+.pr .pub{grid-column:1;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--hot)}
+.pr b{grid-column:1;font-size:15px;line-height:1.35}
+.pr .go{grid-column:2;grid-row:1/3;font-weight:700;color:var(--accent);white-space:nowrap}
+.testi{margin:20px 0 14px;background:var(--ink);color:var(--paper);border-radius:22px;padding:30px;position:relative}
+.testi blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.45}
+.testi figcaption{margin-top:18px;display:grid;gap:2px}
+.testi figcaption b{color:var(--mark)}
+.testi figcaption span{font-size:13px;color:color-mix(in srgb,var(--paper) 75%,transparent)}
+.rv{transform:translateY(22px);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in-view{transform:none}
+.imp,.aw-card,.card,.honour,.csr-card,.sg{transition:transform .25s,box-shadow .25s}
+.aw-card:hover,.csr-card:hover,.honour:hover{transform:translateY(-4px);box-shadow:0 18px 36px -24px rgba(14,26,58,.5)}
+.ebrand{margin-top:18px;display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;background:var(--ink);color:var(--paper);border-radius:20px;padding:26px 28px}
+@media (max-width:820px){.ebrand{grid-template-columns:1fr}}
+.ebrand h3{color:var(--paper);font-size:26px;margin:6px 0}
+.ebrand p{margin:0;color:color-mix(in srgb,var(--paper) 78%,transparent)}
+.ebrand .kicker{color:var(--mark)}
+.rates{display:grid;gap:12px}
+.rate{display:grid;grid-template-columns:110px 1fr 44px 50px;gap:12px;align-items:center}
+.pf{font-weight:700}
+.rbar{height:12px;border-radius:6px;background:color-mix(in srgb,var(--paper) 15%,transparent);overflow:hidden}
+.rbar i{display:block;height:100%;width:var(--w);background:var(--mark);border-radius:6px;animation:grow 1.4s cubic-bezier(.2,.8,.2,1) both}
+.rate b{font-family:var(--display);font-size:20px;text-align:right}
+.rate em{font-style:normal;font-weight:800;color:#7EE0A8;text-align:right}
+.rnote{font-size:12px}
+.rup{font-size:13px;color:color-mix(in srgb,var(--paper) 70%,transparent)}
+.auto{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.auto{grid-template-columns:1fr}}
+.ac{background:var(--card);border:1px solid var(--line);border-top:4px solid #2E8B57;border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;transition:border-color .3s,transform .25s}
+.ac:hover{transform:translateY(-4px)}
+.ac h3{font-size:22px;line-height:1.15}
+.ac .tag{align-self:flex-start}
+.ac p{margin:0}
+.ac .b4,.ac .nw{border-radius:10px;padding:12px 14px;font-size:15px;animation:fadeup .35s ease}
+.ac .b4{background:#FBEFEF;color:#7A2E2E}
+.ac .nw{background:#EAF6EF;color:#1E5A3A}
+:root[data-theme="dark"] .ac .b4{background:#3A2026;color:#F2B8B8}:root[data-theme="dark"] .ac .nw{background:#1B3527;color:#A9E5C1}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ac .b4{background:#3A2026;color:#F2B8B8}:root:not([data-theme="light"]) .ac .nw{background:#1B3527;color:#A9E5C1}}
+.auto[data-v="now"] .b4{display:none}
+.auto[data-v="before"] .nw,.auto[data-v="before"] .ticks{display:none}
+.auto[data-v="before"] .ac{border-top-color:#C0504D}
+.ac .ticks li{font-size:14px}
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-radius:28px;padding:48px;position:relative;overflow:hidden}
+.contact::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;border:2px solid var(--mark);opacity:.6}
+.contact h2{color:var(--paper);position:relative;z-index:1;max-width:16ch}
+.contact p{position:relative;z-index:1;color:color-mix(in srgb,var(--paper) 80%,transparent);max-width:55ch}
+.contact .btn{background:var(--mark);color:#0E1A3A;border-color:var(--mark);position:relative;z-index:1}
+.contact .btn.ghost{background:transparent;color:var(--paper);border-color:color-mix(in srgb,var(--paper) 30%,transparent)}
+.contact .mail{position:relative;z-index:1;font-weight:700;margin-top:14px;font-size:15px}
+footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
+</style>
+<div class="progress" id="prog" aria-hidden="true"></div>
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/head.jpg" alt="">Aryan Bhatt</a>
+    <ul>
+      <li><a href="#work">Role</a></li>
+      <li><a href="#hrtech">HR Tech</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#leaderforge">LeaderForge</a></li>
+      <li><a href="#tgy">Events</a></li>
+      <li><a href="#programmes">Gallery</a></li>
+      <li><a href="#community">CSR</a></li>
+      <li><a href="#hats">Capabilities</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#journey">Journey</a></li>
+    </ul>
+    <a class="navcta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">HR Business Partner · Chief of Staff Office · Wissen Technology</div>
+        <h1 style="margin-top:16px">People strategy, <span class="serif">delivered</span> end to end.</h1>
+        <p class="lede">I'm Aryan Bhatt, an HR professional partnering with senior leadership and Managing Directors to shape how 2,500+ people join, engage, grow and stay. I specialise in employee engagement and stakeholder management, and I bring an unusually wide toolkit to it: psychology, journalism, people analytics, facilitation and the stage.</p>
+        <p class="lede" style="margin-top:10px">Within a year of joining Wissen, I moved into the Chief of Staff Office, the firm's most visible people team. I now co-lead its flagship retention programme, run the quarterly town hall and present at Quarterly Business Reviews.</p>
+        <div class="cta">
+          <a class="btn" href="#work">View my work ↓</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+        <div class="worked"><span class="kicker">Experience with</span><ul><li>Wissen Technology</li><li>The Hindu</li><li>Christ University</li><li>Isha Foundation</li><li>AmbitionBox</li></ul></div>
+      </div>
+      <div class="portrait">
+        <img src="img/tattva_1.jpg" alt="Aryan Bhatt hosting Tattva, LeaderForge 2026, at Wissen Technology">
+        <div class="badge b1"><small>Flagship</small>Co-lead, LeaderForge 2.0</div>
+        <div class="badge b2"><small>Wissen · 2026–27 Q1</small>Shining Star Award</div>
+        <div class="badge b3"><small>Wissen</small>Team Award</div>
+        <div class="badge b4"><small>Christ University</small>First rank &amp; valedictorian</div>
+        <div class="badge b5"><small>CBSE Class X</small>District topper</div>
+      </div>
+</div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+</header>
+
+<main>
+<section class="impact" aria-label="Impact">
+  <div class="wrap">
+    <div class="kicker">Wissen Technology · Chief of Staff Office</div>
+    <h2>Impact at a glance</h2>
+    <div class="imp-grid">
+      <div class="imp"><b data-count="2500" data-suf="+">2,500+</b><span>employees my programmes reach, across six cities</span></div>
+      <div class="imp"><b data-count="34" data-suf="%">34%</b><span>average increase in event participation from tailored engagement</span></div>
+      <div class="imp"><b>15% → 8%</b><div class="attr" aria-hidden="true"><i style="height:100%"></i><i style="height:53%" id="attr8"></i><em>regretted attrition</em></div><span>Contributed to retention initiatives behind this drop</span></div>
+      <div class="imp"><b>GPTW®</b><span>Great Place to Work® certified in consecutive years. I track the survey insights behind it</span></div>
+      <div class="imp"><b>+0.8</b><span>Google employer rating, now 3.9, with Glassdoor and AmbitionBox up 0.5 each</span></div>
+      <div class="imp"><b>Monthly</b><span>team leaderboard on attrition and participation, presented across ~30 teams</span></div>
+      <div class="imp"><b>&lt; 1 yr</b><span>from Talent Acquisition trainee to the Chief of Staff Office, promoted to Associate Executive</span></div>
+      <div class="imp"><b data-count="30">30</b><span>teams whose events and engagement I manage, delivering successful events consistently</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Wissen Technology · Jun 2025 to now</div>
+        <h2>Role &amp; responsibilities</h2>
+        <p class="lede">I work with senior leadership, Managing Directors, recruitment and technical leads, Finance and L&amp;D to shape how 2,500+ people experience the firm, from offer letter to recognition on stage.</p>
+      </div>
+    </div>
+    <div class="ladder" aria-label="Career progression at Wissen">
+      <div class="rung"><small>Jun – Nov 2025</small><strong>Trainee, Talent Acquisition</strong></div>
+      <div class="rung"><small>Dec 2025 – Mar 2026</small><strong>Trainee, Chief of Staff Office</strong></div>
+      <div class="rung"><small>Apr 2026 – Present</small><strong>Associate Executive, Chief of Staff Office</strong></div>
+    </div>
+    <div class="areas">
+      <div class="area-tabs" role="tablist" aria-label="Areas of work" id="areatabs"></div>
+      <div class="area-panel" id="areapanel" role="tabpanel"></div>
+    </div>
+    <div class="ebrand">
+      <div>
+        <div class="kicker">Employer branding · Results</div>
+        <h3>Ratings up on all three platforms</h3>
+        <p>Since I joined the team and began running these campaigns and engagement events, alongside a growing number of reviews.</p>
+      </div>
+      <div class="rates">
+        <div class="rate"><span class="pf">Google</span><span class="rbar"><i style="--w:78%"></i></span><b>3.9</b><em>+0.8</em></div>
+        <div class="rate"><span class="pf">Glassdoor</span><span class="rup">Rating up since I joined the team</span><b></b><em>+0.5</em></div>
+        <div class="rate"><span class="pf">AmbitionBox</span><span class="rup">Rating up since I joined the team</span><b></b><em>+0.5</em></div>
+        <p class="rnote">Google bar shows the current rating out of 5.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hrtech" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">HR technology &amp; automation</div>
+        <h2>Non-tech background. Building with tech teams.</h2>
+        <p class="lede">I work with Wissen's engineering teams to replace manual HR work with systems that update themselves. Switch the cards between before and now.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Show before or now" id="bnchips">
+        <button class="chip" aria-pressed="false" data-v="before">Before</button>
+        <button class="chip" aria-pressed="true" data-v="now">Now</button>
+      </div>
+    </div>
+    <div class="auto" id="auto" data-v="now">
+      <article class="ac">
+        <span class="tag">With engineering</span>
+        <h3>LeaderForge leaderboard platform</h3>
+        <p class="b4">Team scores were calculated by hand in spreadsheets before I joined.</p>
+        <p class="nw">A web app built with the engineering team: scores for every team update dynamically, and calculations run automatically as data is added.</p>
+        <ul class="ticks"><li>Covers attrition, event participation and more across ~30 teams</li><li>Decides the year-end winners, who earn reward trips (last year: Rishikesh), which we plan</li></ul>
+      </article>
+      <article class="ac">
+        <span class="tag">In progress</span>
+        <h3>One-stop internal platform</h3>
+        <p class="b4">Company news lived on a SharePoint site, and many people don't read emailers.</p>
+        <p class="nw">Automating it into a one-stop destination where anyone can click and see, at a glance and with images, what's happening: culture, events and HR updates.</p>
+        <ul class="ticks"><li>Built for how people actually consume updates</li><li>Brings culture, events and HR news into one place</li></ul>
+      </article>
+      <article class="ac">
+        <span class="tag">Owned by me</span>
+        <h3>Viva Engage</h3>
+        <p class="b4">Team updates were scattered across emails and chats.</p>
+        <p class="nw">I run our team's Viva Engage channel on my own, publishing every update from the Chief of Staff Office's programmes.</p>
+        <ul class="ticks"><li>Event announcements, recaps and recognition</li><li>Employee-led posts, such as during Thank You Week</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Recognised by leadership</div>
+        <h2>Awards at Wissen</h2>
+        <p class="lede">Two awards in my first year at the firm, both signed by the firm's Managing Directors.</p>
+      </div>
+    </div>
+    <div class="aw">
+      <figure class="aw-card big"><button class="zoom" data-src="img/cert_shining.jpg" data-cap="Shining Star Award, Certificate of Excellence, 2026–27 Q1"><img src="img/cert_shining.jpg" alt="Shining Star Awards 2026–2027 Q1 Certificate of Excellence for Aryan Bhatt"></button>
+        <figcaption><span class="tag">Individual · 2026–27 Q1</span><b>Shining Star Award</b><span>Certificate of Excellence “for proactively demonstrating commitment and initiating impactful actions to achieve organisational goals.”</span></figcaption></figure>
+      <figure class="aw-card"><button class="zoom" data-src="img/award_cert.jpg" data-cap="Rewards & Recognition, Team Awards certificate"><img src="img/award_cert.jpg" alt="Wissen Technology Rewards and Recognition Team Awards certificate for Aryan Bhatt"></button>
+        <figcaption><span class="tag">Team</span><b>Team Award, Rewards &amp; Recognition</b><span>“In recognition of your exceptional contribution and continued excellence.” Signed by the Founder &amp; CEO.</span></figcaption></figure>
+      <figure class="aw-card wide"><button class="zoom" data-src="img/award_team.jpg" data-cap="Team Award winners with leadership at Wissen's 10-year celebration"><img src="img/award_team.jpg" alt="Team Award winners with Wissen leadership on stage"></button>
+        <figcaption><b>Team Award winners with leadership</b><span>On stage at Wissen's 10-year celebration.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="press" style="padding-top:20px">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="kicker">In the news</div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px)">Our initiatives, featured in the press</h2>
+        <p class="lede">The #InnoWissen Gen AI Spot Hackathon Series, a four-part series run as part of the Chief of Staff Office's innovation calendar, was covered by national business media for building an AI-first engineering culture.</p>
+        <div class="press">
+          <a class="pr" href="https://cxotoday.com/media-coverage/wissen-technology-advances-ai-first-engineering-through-innowissen-gen-ai-hackathon-series/" target="_blank" rel="noopener"><span class="pub">CXO Today</span><b>Wissen Technology Advances AI-First Engineering Through #InnoWissen Gen AI Hackathon Series</b><span class="go">Read ↗</span></a>
+          <a class="pr" href="https://businessnewsthisweek.com/business/wissen-technology-advances-ai-first-engineering-through-innowissen-gen-ai-hackathon-series/" target="_blank" rel="noopener"><span class="pub">Business News This Week</span><b>Wissen Technology Advances AI-First Engineering Through #InnoWissen Gen AI Hackathon Series</b><span class="go">Read ↗</span></a>
+          <a class="pr" href="https://www.linkedin.com/feed/update/urn:li:activity:7502617891754684416" target="_blank" rel="noopener"><span class="pub">LinkedIn</span><b>Wissen Technology's post on the coverage</b><span class="go">View ↗</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="kicker">Feedback from guests</div>
+        <h2 style="font-size:clamp(28px,3.4vw,40px)">What people say</h2>
+        <figure class="testi">
+          <blockquote>“It was an amazing session. You took such good care of us as well. The participants were wonderful, they interacted well. At least something would have touched them and made them realise we need to pay attention to mental health: our body, mind, emotions.”</blockquote>
+          <figcaption><b>Prajwal J M</b><span>Isha Foundation volunteer &amp; yoga instructor, guest facilitator at World Mental Health Day</span></figcaption>
+        </figure>
+        <p class="lede" style="font-size:15px">Guests and partners return because they're looked after, from the first invitation to the thank-you afterwards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="leaderforge">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag">Co-leading</span>
+        <div class="kicker" style="margin-top:12px">Flagship · Firm-wide · Six cities</div>
+        <h2>LeaderForge 2.0</h2>
+        <p class="lede">Wissen's flagship employee experience and retention programme. It supports people beyond their project deployment through belonging, clubs, recognition and culture-building. I co-lead it, partnering with Managing Directors and teams across six cities, with international colleagues coming on board next.</p>
+      </div>
+    </div>
+    <div class="lf">
+      <div>
+        <h3>How it works</h3>
+        <p>The whole firm is organised into about 30 peer-led teams, each run by an Owner and Captains. Each team builds its own community while taking part in, and showing up for, what other teams run, so connection reaches across the whole firm.</p>
+        <div class="outcome"><b>34%</b><span>increase in average event participation</span></div>
+      </div>
+      <div class="lf-net">
+        <canvas id="net" role="img" aria-label="Network diagram: Wissen LeaderForge at the centre, connected to about 30 peer-led teams"></canvas>
+        <p class="netcap" id="netcap">Hover over the network to meet the teams.</p>
+      </div>
+    </div>
+    <div class="tattva">
+      <button class="zoom" data-src="img/tattva_2.jpg" data-cap="Addressing the room at Tattva, LeaderForge 2026"><img src="img/tattva_2.jpg" alt="Aryan addressing the room at Tattva, LeaderForge 2026"></button>
+      <div class="tattva-cap"><span class="tag">Tattva · LeaderForge 2026</span><h3 style="color:var(--paper);font-size:26px">Hosting Tattva</h3><p>Hosting and presenting at Tattva, the LeaderForge 2026 gathering, in front of team Owners, Captains and leadership.</p></div>
+    </div>
+    <h3 style="margin:36px 0 0;font-size:26px">Four pillars</h3>
+    <div class="pillars">
+      <button class="pillar" aria-expanded="false"><span class="pn">01</span><b>Belongingness</b><span class="pd">Building connections across teams and a real sense of community, so every member feels valued.</span></button>
+      <button class="pillar" aria-expanded="false"><span class="pn">02</span><b>Happiness</b><span class="pd">Improving everyday experience through clubs, activities and celebrations, with avenues to express ourselves beyond work.</span></button>
+      <button class="pillar" aria-expanded="false"><span class="pn">03</span><b>Performance Excellence</b><span class="pd">Encouraging participation, achievement and team excellence, so high standards become habit.</span></button>
+      <button class="pillar" aria-expanded="false"><span class="pn">04</span><b>Mentoring a League of Achievers</b><span class="pd">Empowering and guiding future leaders through mentorship, challenging projects, continuous learning and recognition.</span></button>
+    </div>
+    <div class="two" style="margin-top:36px">
+      <div>
+        <h3 style="font-size:24px;margin-bottom:12px">My part</h3>
+        <ul class="ticks">
+          <li>Co-lead the programme, partnering with Managing Directors and with Owners and Captains across about 30 teams</li>
+          <li>Manage events for all ~30 teams, consistently delivering successful events and bringing guests and partners back</li>
+          <li>Design tailored engagement initiatives and run the engagement calendar</li>
+          <li>Present a monthly leaderboard across all teams, covering attrition, event participation and more, so teams compete and gaps surface early</li>
+          <li>Present LeaderForge updates to leadership at Quarterly Business Reviews</li>
+          <li>Worked with engineering to turn the leaderboard into a self-calculating web app that decides the year-end winners, who earn reward trips (last year: Rishikesh)</li>
+          <li>Keep employee data current, including new-joiner and team mapping</li>
+          <li>Feed engagement and attrition MIS for leadership</li>
+          <li>Run the meetings and follow-ups that get things done across business units and locations</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:24px;margin-bottom:12px">Under the umbrella</h3>
+        <div class="tagcloud">
+          <span>Team outings in Bengaluru &amp; Mumbai</span><span>Joy of Giving donation drives</span><span>Badminton &amp; cricket leagues</span><span>Wellness Club</span><span>Vegan Month</span><span>Public Speaking Club</span><span>Culture &amp; celebrations</span><span>CSR</span><span>Recognition</span><span>Cross-team engagement</span><span>Employer branding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tgy" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag">Event management</span>
+        <div class="kicker" style="margin-top:12px">Firm-wide · Corporate milestone</div>
+        <h2>10 Glorious Years</h2>
+        <p class="lede">Wissen Technology's celebration of ten years as a company. I worked on it end to end: facilitation and coordination on the day, and the networking, marketing and branding around it.</p>
+      </div>
+    </div>
+    <div class="tgy">
+      <div class="tgy-grid">
+        <div class="tgy-col"><button class="zoom tg1" data-src="img/tgy_stage1.jpg" data-cap="Coordinating on stage at 10 Glorious Years"><img src="img/tgy_stage1.jpg" alt="Aryan on stage beside the host at Wissen's 10 Glorious Years celebration"></button>
+        <button class="zoom tg2" data-src="img/award_team.jpg" data-cap="Team Award winners with leadership"><img src="img/award_team.jpg" alt="Award winners with leadership on stage"></button></div>
+        <button class="zoom tg3" data-src="img/lf/ramp.jpg" data-cap="On the ramp in the cultural segment"><img src="img/lf/ramp.jpg" alt="Aryan on the ramp in a blue kurta and red dupatta during the cultural ramp walk"></button>
+      </div>
+      <div class="tgy-roles">
+        <div class="role"><b>Facilitation &amp; coordination</b><span>On-stage and backstage coordination with the hosts to keep the programme running.</span></div>
+        <div class="role"><b>Event management</b><span>Planning, logistics and coordination across teams for a firm-wide milestone event.</span></div>
+        <div class="role"><b>Networking</b><span>Bringing people and stakeholders together around the celebration.</span></div>
+        <div class="role"><b>Marketing &amp; branding</b><span>Promoting the event and shaping how it was presented to the firm.</span></div>
+        <div class="role"><b>On the ramp</b><span>And, in the cultural segment, on stage myself for the ramp walk.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="playbook">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Core strength</div>
+        <h2>How I deliver programmes</h2>
+        <p class="lede">Events are where engagement becomes visible. I run them as programmes, from concept to measurement. World Mental Health Day is the worked example.</p>
+      </div>
+    </div>
+    <div class="play">
+      <div class="track" role="tablist" aria-label="How I run an event" id="track"><span class="fill" id="fill"></span></div>
+      <div class="play-body">
+        <div id="pbHow"></div>
+        <div id="pbEx"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programmes" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Gallery · 2026</div>
+        <h2>Programmes &amp; moments</h2>
+        <p class="lede">A selection of what we've run. Pick a theme, open any photo full size, and expand a programme for the detail.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter themes" id="themechips"></div>
+    </div>
+    <p class="reach"><span><b>In person:</b> Bengaluru, Mumbai, Pune</span><span><b>Virtual access:</b> Hyderabad, Chennai</span><span>Every event is open to everyone</span></p>
+    <div id="themes"></div>
+    <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lb-x" id="lbx" aria-label="Close photo">×</button>
+      <button id="lbp" aria-label="Previous photo">‹</button>
+      <figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure>
+      <button id="lbn" aria-label="Next photo">›</button>
+    </div>
+  </div>
+</section>
+
+<section id="wmhd" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="tag">Led · Concept to execution</span>
+        <div class="kicker" style="margin-top:12px">Case study · Wellness Club · 8 October 2026</div>
+        <h2>World Mental Health Day at Wissen</h2>
+        <p class="lede">What does it really mean to make space for mental well-being at work? I brought psychology, yoga and spirituality into one room to explore it.</p>
+      </div>
+    </div>
+    <div class="cs">
+      <figure class="gallery" aria-label="Photos from the session">
+        <div class="frame"><img id="gimg" src="img/wmhd-4.jpg" alt="Aryan explaining the activity, holding the basket"></div>
+        <figcaption>
+          <span id="gcap">Explaining the activity to the room and to colleagues online.</span>
+          <span class="gdots" role="group" aria-label="Choose photo">
+            <button aria-pressed="true" data-i="0" aria-label="Photo 1"></button><button aria-pressed="false" data-i="1" aria-label="Photo 2"></button><button aria-pressed="false" data-i="2" aria-label="Photo 3"></button><button aria-pressed="false" data-i="3" aria-label="Photo 4"></button><button aria-pressed="false" data-i="4" aria-label="Event poster"></button>
+          </span>
+        </figcaption>
+      </figure>
+      <div class="cs-body">
+        <h3>My role</h3>
+        <p>Concept to execution, as part of the Wissen Wellness Club. I co-facilitated with Shaifali Verma (Senior Manager, Learning &amp; Development) and partnered with Isha Foundation volunteers, who shared practices such as Nadi Shuddhi and meditation. We also pointed everyone to the free therapy support Wissen offers through 1to1help.</p>
+        <h3>The idea</h3>
+        <p>There is no one-size-fits-all approach to mental well-being. The session helped 40+ people manage stress, build self-awareness and find what works for them, in Bengaluru and online from other offices.</p>
+        <h3>Why it matters to me</h3>
+        <p>I studied psychology throughout college, and it's why HR feels meaningful to me. HR isn't only processes and policies; it's about creating places where people feel heard, supported and able to thrive.</p>
+      </div>
+    </div>
+    <div class="glance"><div><b>40+</b><span>participants</span></div><div><b>Hybrid</b><span>in person and online</span></div><div><b>8 Oct 2026</b><span>World Mental Health Day</span></div><div><b>Isha Foundation</b><span>yoga and meditation partner</span></div></div>
+    <details class="more" style="margin-bottom:26px"><summary>About the session</summary>
+      <p>Organised by the Wellness Club to bring yoga, meditation and psychology together, and to encourage open conversations about stress, self-awareness, listening and well-being.</p>
+      <ul><li><b>With Isha Foundation:</b> the mechanics of stress, simple practices for the body-mind connection, perspectives on inner balance, and a guided meditation for daily life</li><li><b>Psychology-informed perspective:</b> the Chief of Staff team with Shaifali Verma (Senior Manager, L&amp;D) and me, using interactive games and reflection exercises on listening, expression, self-awareness and feeling heard</li></ul></details>
+    <div class="basket">
+      <div>
+        <div class="kicker">The activity I designed</div>
+        <h3>“Leave It in the Basket”</h3>
+        <p>Participants anonymously wrote down one thing getting in the way of their everyday functioning, or stopping them from being fully themselves, folded it and placed it in a basket. Throwing the notes away doesn't make problems disappear, and that was never the point. The first step is acknowledging something is there.</p>
+      </div>
+      <ol class="steps2" id="steps" aria-label="How the activity works">
+        <li><button aria-pressed="true" data-s="0"><b>1</b>Write it down</button></li>
+        <li><button aria-pressed="false" data-s="1"><b>2</b>Fold it</button></li>
+        <li><button aria-pressed="false" data-s="2"><b>3</b>Leave it in the basket</button></li>
+        <li><button aria-pressed="false" data-s="3"><b>4</b>Acknowledge it</button></li>
+      </ol>
+      <p class="stepnote" id="stepnote" aria-live="polite">Name, privately and without judgement, the thing that's weighing on you.</p>
+    </div>
+    <blockquote class="pull">“One session cannot solve everything, nor should it pretend to. But it can open a door.”</blockquote>
+    <p class="lede" style="margin-top:14px">Guest feedback: “It was an amazing session. You took such good care of us as well.” Prajwal J M, Isha Foundation. <a href="#press">More ↑</a></p>
+  </div>
+</section>
+
+<section id="hats">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">A versatile skill set</div>
+        <h2>Capabilities</h2>
+        <p class="lede">A generalist by design. HR partnering, programme delivery, data, communication, facilitation and community work strengthen one another. Select a capability to see the evidence.</p>
+      </div>
+    </div>
+    <div class="hats">
+      <div class="hat-list" role="tablist" aria-label="Hats I wear" id="hatlist"></div>
+      <div class="hat-panel" id="hatpanel" role="tabpanel"></div>
+    </div>
+  </div>
+</section>
+
+<section id="research" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Christ University · 2025</div>
+        <h2>Research &amp; data</h2>
+        <p class="lede">My third-year psychology research, a quantitative study, is where my comfort with data started. The same habits now go into engagement and attrition MIS at work.</p>
+      </div>
+    </div>
+    <div class="res-mini">
+      <div class="res-main">
+        <span class="tag soft">Research paper · Poster presentation</span>
+        <h3>Influence of parenting styles and peer pressure on alcohol use among Bengaluru college students</h3>
+        <p class="team">With <a href="https://www.linkedin.com/in/namitha-acharya-197501209/" target="_blank" rel="noopener">Namitha Acharya</a>, <a href="https://www.linkedin.com/in/meera-k-ajay/" target="_blank" rel="noopener">Meera K Ajay</a> and Shreenidhi Rangarajan. Faculty mentor: <a href="https://www.linkedin.com/in/nisha-james-b24478138/" target="_blank" rel="noopener">Dr. Nisha James</a>.</p>
+      </div>
+      <div class="res-icons">
+        <button class="res-img" data-src="img/res_poster.jpg" data-cap="The research poster" aria-label="Open the research poster full size"><img src="img/res_poster.jpg" alt="Research poster: Influence of parenting styles and peer pressure on alcohol use among Bengaluru college students"></button>
+        <button class="res-img" data-src="img/res_team.jpg" data-cap="Presenting the poster with the research team" aria-label="Open the team photo full size"><img src="img/res_team.jpg" alt="Aryan with research teammates in front of their poster at Christ University"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Corporate social responsibility</div>
+        <h2>Community &amp; CSR</h2>
+        <p class="lede">I've been part of community work consistently, in college and at Wissen. A few of the many initiatives.</p>
+      </div>
+    </div>
+    <div class="csr">
+      <article class="csr-card">
+        <div class="media land">
+          <video class="clip-v" style="aspect-ratio:624/576;max-width:420px" src="vid/childrens_day.mp4" poster="vid/childrens_day.jpg" muted loop playsinline preload="metadata" aria-label="Aryan dancing with a child on Children's Day at Swanthana"></video>
+          <div class="thumbs">
+            <button class="zoom" data-src="img/csr_swanthana_1.jpg" data-cap="The Wissen volunteer team at Swanthana"><img src="img/csr_swanthana_1.jpg" alt="Wissen volunteers outside Swanthana"></button>
+            <button class="zoom" data-src="img/csr_swanthana_2.jpg" data-cap="At Swanthana on Children's Day"><img src="img/csr_swanthana_2.jpg" alt="Wissen volunteers in the Swanthana garden"></button>
+          </div>
+        </div>
+        <div class="body"><span class="tag">Wissen · CSR</span><h3>Children's Day at Swanthana</h3>
+          <div class="glance"><div><b>₹30,000</b><span>groceries and essentials donated</span></div><div><b>30</b><span>girls engaged</span></div><div><b>LeaderForge</b><span>team partnership</span></div></div>
+          <details class="more"><summary>More details</summary>
+            <p><b>About Swanthana.</b> A home for girls with severe multiple disabilities on Sarjapur Road, Bengaluru, run by the Daughters of St Camillus. Public reports describe round-the-clock care, daily physiotherapy, music and recreation time, and medical support through partner hospitals and volunteer doctors.</p>
+            <ul><li>Delivered a large list of groceries and other essentials, donated on behalf of Wissen</li><li>Partnered with one of the LeaderForge teams for the visit</li><li>Spent the afternoon dancing, singing and playing interactive games with the girls, the best way we found to spend time with them</li></ul></details></div>
+      </article>
+      <article class="csr-card">
+        <div class="media">
+          <video class="clip-v" src="vid/literacy_day.mp4" poster="vid/literacy_day.jpg" muted loop playsinline preload="metadata" aria-label="Aryan addressing students on International Literacy Day"></video>
+          <div class="thumbs">
+            <button class="zoom" data-src="img/csr_literacy.jpg" data-cap="Welcoming students on International Literacy Day"><img src="img/csr_literacy.jpg" alt="Aryan with a colleague at the blackboard on International Literacy Day"></button>
+            <button class="zoom" data-src="img/lf/s15_4.jpg" data-cap="Volunteers and students at Yamaluru Government School"><img src="img/lf/s15_4.jpg" alt="Volunteers and students outside the school"></button>
+            <button class="zoom" data-src="img/csr_literacy_2.jpg" data-cap="Students at Yamaluru Government School during the Literacy Day session"><img src="img/csr_literacy_2.jpg" alt="Students seated on the floor during the Literacy Day session" loading="lazy"></button>
+          </div>
+        </div>
+        <div class="body"><span class="tag">Wissen · CSR</span><h3>International Literacy Day</h3>
+          <div class="glance"><div><b>~15</b><span>volunteers across HR, finance and tech</span></div><div><b>Grades 6–7</b><span>Yamaluru Government School</span></div><div><b>8 Sep</b><span>International Literacy Day 2026</span></div></div>
+          <details class="more"><summary>More details</summary>
+            <p>Run with Agastya International Foundation. Volunteers were picked from different functions on purpose, so students could hear about several career paths first-hand.</p>
+            <ul><li>Distributed stationery, as guided by the school, along with chocolates</li><li>Played learning games with the children</li><li>Briefed students on career options across HR, finance and technology</li></ul></details></div>
+      </article>
+    </div>
+    <div class="comm" style="margin-top:18px">
+      <div class="comm-col">
+        <span class="tag soft">More at Wissen</span>
+        <ul style="margin-top:12px">
+          <li><i></i><div><b>Diwali CSR, Pune</b><span>Coordinated donation and volunteering activities.</span></div></li>
+          <li><i></i><div><b>Joy of Giving</b><span>Firm-wide donation drives under LeaderForge.</span></div></li>
+          <li><i></i><div><b>Mental health at work</b><span>World Mental Health Day and a mental-health workshop, with free therapy support made visible to everyone.</span></div></li>
+        </ul>
+      </div>
+      <div class="comm-col">
+        <span class="tag soft">At Christ University</span>
+        <ul style="margin-top:12px">
+          <li><i></i><div><b>Centre for Social Action</b><span>Teaching in project areas, 2022 – 23. <a href="#teaching">The story ↓</a></span></div></li>
+          <li><i></i><div><b>Service Learning, KPS Adugodi</b><span>Media literacy for grades 8 and 9, 2024.</span></div></li>
+          <li><i></i><div><b>First Response Volunteer, Spotlight</b><span>Supporting access to mental well-being services, 2023.</span></div></li>
+          <li><i></i><div><b>Placement Coordinator</b><span>Bridging recruiters, students and the university. <button class="zoom inline" data-src="img/placement.jpg" data-cap="With the Centre for Placement and Career Guidance">See photo</button></span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Before HR, the classroom</div>
+        <h2>Training &amp; education</h2>
+        <p class="lede">Long before facilitation and Training Needs Analysis at Wissen, I was designing sessions for students who don't always have the best learning facilities. It's where I learned to read a room, adapt on the spot and make learning stick.</p>
+      </div>
+    </div>
+
+    <div class="teach">
+      <blockquote class="anna">
+        <p>“Bye Aryan Anna!”</p>
+        <footer>A small boy waved from across the road after one of our teaching sessions with the <a href="https://www.linkedin.com/company/centreforsocialaction/" target="_blank" rel="noopener">Centre for Social Action</a>, with the widest smile. It wasn't just a farewell. It was connection, and the kind of impact that consistent presence and shared learning create.</footer>
+      </blockquote>
+
+      <article class="sl">
+        <div class="sl-text">
+          <span class="tag soft">Service Learning · Christ University · 2024</span>
+          <h3>Media literacy at Karnataka Public School, Adugodi</h3>
+          <p>With teammates <a href="https://www.linkedin.com/in/alina-tom-254a86253/" target="_blank" rel="noopener">Alina Tom</a> and <a href="https://www.linkedin.com/in/swastika-soni-2143912b5/" target="_blank" rel="noopener">Swastika Soni</a>, I introduced media literacy to students in grades 8 and 9 at a public school where the infrastructure was barely holding up, but the students' determination stood tall.</p>
+          <p>We started with newspapers and digital tools. The sessions grew into conversations about the internet, responsible tech use and possibilities the students hadn't imagined, and ended with them designing their own student magazine.</p>
+          <div class="did">
+            <span>Needs assessment</span><span>Session design</span><span>Facilitation</span><span>Creative expression</span><span>Digital literacy</span><span>Teamwork</span>
+          </div>
+        </div>
+        <div class="polaroids">
+          <figure class="pol p1"><img src="img/sl_session.jpg" alt="Aryan and a teammate running an outdoor session with students seated on steps"><figcaption>An outdoor session at KPS, Adugodi</figcaption></figure>
+          <figure class="pol p2"><img src="img/sl_magazine.jpg" alt="Cover of the Karnataka Public School Student Magazine, October 2024, Issue 01, Service Learning Program with Christ University"><figcaption>The magazine the students made, Oct 2024</figcaption></figure>
+        </div>
+      </article>
+
+      <div class="cross">
+        <div>
+          <span class="tag">The crossroads</span>
+          <h3>Teach For India final round. Then, a deliberate choice.</h3>
+          <p>I made it to the final round of the <a href="https://www.teachforindia.org/become-a-fellow" target="_blank" rel="noopener">Teach For India Fellowship</a>, a two-year, full-time role teaching in under-resourced classrooms. Its final stage is an Assessment Centre with sample teaching, critical thinking, a group activity and an interview.</p>
+          <p>I chose Wissen instead, to build a career in HR. It offered broader exposure to the whole employee lifecycle, and the chance to bring what I'd learned in classrooms to how organisations hire, develop and keep their people.</p>
+        </div>
+        <ol class="bridge" aria-label="How teaching carries into my HR work">
+          <li><b>Classrooms</b><span>CSA teaching, Service Learning</span></li>
+          <li><b>Facilitation</b><span>World Mental Health Day, Navigating My Next Me</span></li>
+          <li><b>Learning at work</b><span>Training Needs Analysis and capability building with L&amp;D</span></li>
+          <li><b>Onboarding</b><span>POFU and new-joiner assimilation</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stage" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Presence &amp; facilitation</div>
+        <h2>Stage, theatre &amp; workshops</h2>
+        <p class="lede">An award-winning theatre background is why I'm at ease in front of any room, from a street-play crowd to a firm-wide town hall.</p>
+      </div>
+    </div>
+    <div class="theatre">
+      <div class="th-photos">
+        <button class="zoom th1" data-src="img/theatre_team.jpg" data-cap="Street play team, Christ University"><img src="img/theatre_team.jpg" alt="Aryan with the street play cast holding placards on mental-health themes"></button>
+        <button class="zoom th2" data-src="img/theatre_costume.jpg" data-cap="In costume, between performances"><img src="img/theatre_costume.jpg" alt="Aryan in costume with a pink scarf"></button>
+      </div>
+      <div class="th-body">
+        <span class="tag">Theatre · Christ University</span>
+        <h3>Street play &amp; proscenium</h3>
+        <p>Street theatre on mental-health themes such as low self-esteem, social withdrawal and guilt and shame, bringing psychology to the street, along with proscenium stage work.</p>
+        <div class="certs2">
+          <button class="zoom" data-src="img/cert_darpan.jpg" data-cap="First place, Street Play, DARPAN 2024"><img src="img/cert_darpan.jpg" alt="DARPAN 2024 Certificate of Achievement, first place in Street Play"><span><b>1st place, Street Play</b>DARPAN 2024, intra-university cultural talent hunt</span></button>
+          <button class="zoom" data-src="img/cert_blossoms.jpg" data-cap="First place, Proscenium, Blossoms 2024–25"><img src="img/cert_blossoms.jpg" alt="Blossoms 2024–25 Certificate of Appreciation, first place in Proscenium"><span><b>1st place, Proscenium</b>Blossoms 2024–25, inter-deanery cultural fest</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="cards" style="margin-top:18px">
+      <article class="card wk"><video class="clip-v" src="vid/mandala_workshop.mp4" poster="vid/mandala_workshop.jpg" muted loop playsinline preload="metadata" aria-label="Aryan facilitating a mental-health workshop with mandala colouring sheets"></video><span class="when-tag">Facilitated · Wissen</span><h3>Mental-health workshop</h3><p>A workshop I facilitated on mental health, using mandala colouring as a mindful, hands-on exercise.</p></article>
+      <article class="card"><span class="when-tag">Led · Oct 2026</span><h3>World Mental Health Day</h3><p>Concept to execution, including “Leave It in the Basket”, an activity I designed. <a href="#wmhd">Case study ↑</a></p></article>
+      <article class="card"><span class="when-tag">Co-facilitator · VectorFlow</span><h3>Navigating My Next Me</h3><p>An employee development session, co-facilitated with Shaifali Verma (Senior Manager, Learning &amp; Development).</p></article>
+      <article class="card"><span class="when-tag">Quarterly · Wissen</span><h3>Town halls, QBRs &amp; R&amp;R</h3><p>I run the quarterly firm-wide town hall, present LeaderForge at Quarterly Business Reviews, and run quarterly recognition ceremonies.</p></article>
+      <article class="card"><span class="when-tag">Tattva · LeaderForge 2026</span><h3>Presenting LeaderForge</h3><p>Addressing team Owners, Captains and leadership. <a href="#leaderforge">LeaderForge ↑</a></p></article>
+      <article class="card"><span class="when-tag">Master of Ceremonies · 2023 – 24</span><h3>Hosting at Christ University</h3><p>Hosted college-level events for the Student Welfare Office.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">The whole story</div>
+        <h2>Journey</h2>
+        <p class="lede">Newest first. Filter by thread, and open any entry for the detail.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter journey" id="jchips">
+        <button class="chip" aria-pressed="true" data-f="all">All</button>
+        <button class="chip" aria-pressed="false" data-f="work">Work</button>
+        <button class="chip" aria-pressed="false" data-f="writing">Media</button>
+        <button class="chip" aria-pressed="false" data-f="lead">Leadership</button>
+        <button class="chip" aria-pressed="false" data-f="vol">Community</button>
+        <button class="chip" aria-pressed="false" data-f="teach">Teaching</button>
+        <button class="chip" aria-pressed="false" data-f="edu">Education</button>
+      </div>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section id="bylines" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">The Hindu · Journalism Intern · 2024</div>
+        <h2>Bylines</h2>
+        <p class="lede">Finance, science and corporate inclusivity on the Bengaluru beat, including a feature on workplace diversity and inclusive hiring.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter bylines" id="bchips">
+        <button class="chip" aria-pressed="true" data-b="all">All</button>
+        <button class="chip" aria-pressed="false" data-b="city">City &amp; civic</button>
+        <button class="chip" aria-pressed="false" data-b="biz">Markets</button>
+        <button class="chip" aria-pressed="false" data-b="culture">Culture &amp; workplace</button>
+      </div>
+    </div>
+    <div class="feat-clip"><span class="tag">Featured byline · The Hindu, Bengaluru</span><button class="zoom clipimg" data-src="img/hindu_clip.jpg" data-cap="The Hindu, Bengaluru: Corporate inclusivity for the LGBTQ+ community, by Aryan Bhatt and Abhilekh Baruah"><img src="img/hindu_clip.jpg" alt="The Hindu Bengaluru page headline: Corporate inclusivity for the LGBTQ+ community: A look beyond Pride Month, by Aryan Bhatt and Abhilekh Baruah"></button><p>A feature on the “rainbow ceiling” and how inclusive corporate workplaces really are beyond Pride Month: workplace diversity and inclusive hiring, the HR questions I care about.</p><a class="btn ghost" href="https://www.thehindu.com/profile/author/aryan--bhatt-22676/" target="_blank" rel="noopener">Read it on The Hindu ↗</a></div>
+    <div class="clips" id="clips"></div>
+    <a class="btn ghost" href="https://www.thehindu.com/profile/author/aryan--bhatt-22676/" target="_blank" rel="noopener">Read the stories on The Hindu ↗</a>
+  </div>
+</section>
+
+<section id="recognition">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Before work</div><h2>Recognition</h2></div></div>
+    <div class="honours">
+      <article class="honour"><div class="kicker">CBSE Class X · 2020</div><h3>District topper, 99.4%</h3><p>597 out of 600 at Aryaman Vikram Birla Institute of Learning, Haldwani.</p></article>
+      <article class="honour"><div class="kicker">Republic Day 2021</div><h3>Guest of the Hon'ble Prime Minister</h3><p>Invited by the Hon'ble Prime Minister for my rank in the Class X board exams, to watch the parade from the Prime Minister's Box at Rajpath, New Delhi.</p></article>
+      <article class="honour grad"><button class="zoom" data-src="img/grad.jpg" data-cap="Graduation with the first-rank certificate, Christ University"><img src="img/grad.jpg" alt="Aryan at graduation holding his first-rank certificate"></button><div class="kicker">Christ University · 2025</div><h3>First rank &amp; batch valedictorian</h3><p>BA in Psychology, Journalism &amp; English, GPA 3.6/4.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="kicker">Toolkit</div><h2>Skills &amp; certifications</h2></div></div>
+    <div class="skillgrid">
+      <div class="sg"><h3>HR business partnering &amp; employee relations</h3><div class="skills"><span class="skill">Stakeholder Management</span><span class="skill">Employee Engagement</span><span class="skill">Grievance Handling</span><span class="skill">Employee Experience</span><span class="skill">Retention</span><span class="skill">Rewards &amp; Recognition</span></div></div>
+      <div class="sg"><h3>Employee lifecycle</h3><div class="skills"><span class="skill">Post-offer Engagement</span><span class="skill">New-Joiner Assimilation</span><span class="skill">Onboarding</span><span class="skill">Talent Acquisition</span><span class="skill">HR Operations</span></div></div>
+      <div class="sg"><h3>People analytics &amp; MIS</h3><div class="skills"><span class="skill">Attrition Analysis</span><span class="skill">Workforce MIS</span><span class="skill">Engagement Leaderboards</span><span class="skill">Headcount &amp; Vacancy Tracking</span><span class="skill">Recruitment Metrics</span><span class="skill">Dashboards</span><span class="skill">Survey Design</span><span class="skill">Regression &amp; ANOVA</span></div></div>
+      <div class="sg"><h3>Programmes &amp; organisational development</h3><div class="skills"><span class="skill">Event Planning &amp; Execution</span><span class="skill">Town Halls</span><span class="skill">Recognition Programmes</span><span class="skill">Training Needs Analysis</span><span class="skill">Training &amp; Facilitation</span><span class="skill">Session Design</span><span class="skill">Employer Branding</span><span class="skill">Wellness</span><span class="skill">Programme Management</span><span class="skill">HR Process Automation</span></div></div>
+      <div class="sg"><h3>Communication &amp; creative</h3><div class="skills"><span class="skill">Internal Communications</span><span class="skill">Journalism</span><span class="skill">Writing &amp; Editing</span><span class="skill">Social Media Content</span><span class="skill">Public Speaking</span><span class="skill">Theatre</span><span class="skill">Facilitation</span></div></div>
+      <div class="sg"><h3>Tools</h3><div class="skills"><span class="skill">Excel (Formulas, PivotTables)</span><span class="skill">PowerPoint</span><span class="skill">Power BI</span><span class="skill">Zoho ATS</span><span class="skill">SharePoint</span><span class="skill">Viva Engage</span><span class="skill">ChatGPT</span><span class="skill">Gemini</span><span class="skill">Copilot</span></div></div>
+    </div>
+    <ul class="certs">
+      <li class="cert"><strong>The Data Science of Using People Analytics</strong><span>LinkedIn Learning</span></li>
+      <li class="cert"><strong>Generative AI, Recruiting &amp; Talent Acquisition</strong><span>LinkedIn Learning</span></li>
+      <li class="cert"><strong>Fair &amp; Effective Interviewing for D&amp;I</strong><span>LinkedIn Learning</span></li>
+      <li class="cert"><strong>Project Management</strong><span>SWAYAM</span></li>
+      <li class="cert"><strong>Strategic Human Resources</strong><span>SHRM</span></li>
+      <li class="cert"><strong>AI Fluency: Framework &amp; Foundations</strong><span>Anthropic</span></li>
+    </ul>
+    <p class="lede" style="margin-top:16px">Languages: English and Hindi, both fluent.</p>
+  </div>
+</section>
+
+<section id="contact-wrap" style="padding-top:20px">
+  <div class="wrap">
+    <div class="contact" id="contact">
+      <div class="kicker" style="color:var(--mark);position:relative;z-index:1">Let's talk</div>
+      <h2 style="margin-top:10px">Let's build better workplaces together.</h2>
+      <p>Open to conversations about HR business partnering, employee experience, engagement and people analytics.</p>
+      <div class="cta">
+        <a class="btn" href="https://www.linkedin.com/in/aryan-bhatt-142241256/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+        <a class="btn ghost" href="mailto:aryanbhatt241003@gmail.com">Email me</a>
+      </div>
+      <p class="mail">aryanbhatt241003@gmail.com</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">Aryan Bhatt · Bengaluru · 2026</div></footer>
+
+<script>
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function wire(sel,attr,items){document.querySelectorAll(sel+" .chip").forEach(c=>c.addEventListener("click",()=>{document.querySelectorAll(sel+" .chip").forEach(o=>o.setAttribute("aria-pressed",o===c));const v=c.dataset[attr];items().forEach(it=>it.hidden=!(v==="all"||it.dataset.f===v));}));}
+
+/* hero rotator + marquee */
+const MQ=["HR business partnering","HR automation","Employee engagement","Retention","Rewards & recognition","People analytics & MIS","Post-offer engagement","Employee relations","Stakeholder management","Programme management","Learning & development","Employer branding","Internal communications"];
+document.getElementById("mq").innerHTML=[...MQ,...MQ].map(w=>`<span>${w}</span>`).join("");
+
+/* count-ups, starting from the final value at rest */
+const io=("IntersectionObserver" in window)&&!reduce?new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,end=+el.dataset.count,suf=el.dataset.suf||"",t0=performance.now();(function step(t){const p=Math.min(1,(t-t0)/1200),v=Math.round(end*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString("en-IN")+suf;if(p<1)requestAnimationFrame(step);})(t0);}),{threshold:.6}):null;
+if(io)document.querySelectorAll("[data-count]").forEach(el=>io.observe(el));
+/* hats */
+const HATS=[
+ {n:"HR Business Partnering",c:"#3651F0",one:"Partnering with leaders on people outcomes.",li:["HR professional in a 2,500+ employee organisation, partnering with senior leadership and Managing Directors","Handle employee grievances and coordinate resolution with the right stakeholders","The face of Wissen's culture sessions for joiners across all recruitment verticals, every 2–3 weeks","Partner with L&D on Training Needs Analysis and capability building"],go:"#work"},
+ {n:"Programmes & Events",c:"#FF5E4D",one:"From concept to execution, at firm scale.",li:["Run the quarterly firm-wide town hall and quarterly R&R ceremonies for the TA and Technology wings","Co-lead LeaderForge's engagement calendar: leagues, outings, clubs, celebrations","Took World Mental Health Day from concept to execution","Tailored engagement that lifted average event participation by 34%","Manage events across ~30 teams; initiatives featured in national business media"],go:"#playbook"},
+ {n:"People Analytics",c:"#0F8A6A",one:"Decisions grounded in data.",li:["Built and present a monthly leaderboard on attrition and participation across ~30 teams","Analyse participation trends to find gaps and flag retention risks","Consolidate headcount, vacancy, recruitment, attrition and engagement data for leadership reviews","Tracked recruitment MIS: pipelines, drop-offs and offer-to-join conversion","Excel (formulas, PivotTables), Power BI, Zoho ATS; certified in People Analytics","Third-year psychology research project with a poster presentation"],go:"#work"},
+ {n:"Communication & Storytelling",c:"#9333EA",one:"Journalism-trained, clear and persuasive.",li:["Journalism intern at The Hindu, with bylines across finance, science and corporate inclusivity","Editor at Perspective Magazine and The Press Project","Social media content intern at Iconic Creative Company","Write firm-wide emailers, announcements and Viva Engage campaigns at Wissen"],go:"#bylines"},
+ {n:"Facilitation & Presence",c:"#DB2777",one:"Comfortable in front of any room.",li:["Street theatre at Christ University","Master of Ceremonies for the Student Welfare Office","Facilitate sessions and present at town halls and recognition events at Wissen"],go:"#stage"},
+ {n:"Stakeholder Management",c:"#C98A0E",one:"Building trust across functions and levels.",li:["Work across HR, Recruitment, Finance, technical teams and senior leadership","Run LeaderForge with Owners and Captains across about 30 teams","Manage external partnerships with AmbitionBox and Isha Foundation; support shoots with Managing Directors","Bridged recruiters and students as Placement Coordinator at Christ University"],go:"#leaderforge"},
+ {n:"HR Tech & Automation",c:"#0E7490",one:"Non-tech background, building with tech teams.",li:["Turned the manual leaderboard into a self-calculating web app with engineering","Automating the SharePoint intranet into a one-stop news platform","Run our team's Viva Engage channel on my own"],go:"#hrtech"},
+ {n:"Learning & Development",c:"#7C3AED",one:"Designing learning that sticks.",li:["Taught in project areas with the Centre for Social Action","Designed and ran a media literacy programme for grades 8 and 9 at Karnataka Public School, Adugodi, ending in a student magazine","Reached the final round of the Teach For India Fellowship","Now: facilitation, Training Needs Analysis with L&D, and onboarding at Wissen"],go:"#teaching"},
+ {n:"Community & CSR",c:"#0E7490",one:"Consistently involved, in college and at work.",li:["CSR at Wissen: Children's Day, International Literacy Day, Diwali CSR in Pune, Joy of Giving","Centre for Social Action and Spotlight volunteer in college","Student Council and Class Representative"],go:"#community"}
+];
+const hl=document.getElementById("hatlist"),hp=document.getElementById("hatpanel");let hatI=0,hatT;
+HATS.forEach((h,i)=>{const b=document.createElement("button");b.className="hat";b.role="tab";b.id="hat"+i;b.style.setProperty("--c",h.c);b.innerHTML=`<i></i>${h.n}`;b.onclick=()=>{clearInterval(hatT);selHat(i);};hl.appendChild(b);});
+function selHat(i,focus){hatI=i;hl.querySelectorAll(".hat").forEach((b,j)=>{b.setAttribute("aria-selected",j===i);b.tabIndex=j===i?0:-1;});const h=HATS[i];hp.style.setProperty("--c",h.c);hp.setAttribute("aria-labelledby","hat"+i);hp.classList.remove("in");void hp.offsetWidth;hp.classList.add("in");
+  hp.innerHTML=`<h3>${h.n}</h3><p class="one">${h.one}</p><ul class="ticks">${h.li.map(l=>`<li>${l}</li>`).join("")}</ul><a class="more" href="${h.go}">View evidence →</a>`;if(focus)hl.children[i].focus();}
+hl.addEventListener("keydown",e=>{if(["ArrowDown","ArrowRight"].includes(e.key)){e.preventDefault();clearInterval(hatT);selHat((hatI+1)%HATS.length,1);}if(["ArrowUp","ArrowLeft"].includes(e.key)){e.preventDefault();clearInterval(hatT);selHat((hatI-1+HATS.length)%HATS.length,1);}});
+selHat(0);
+if(!reduce){hatT=setInterval(()=>selHat((hatI+1)%HATS.length),5000);hp.addEventListener("pointerenter",()=>clearInterval(hatT));}
+
+/* work areas */
+const A=[
+ {n:"People partnering & ER",h:"People partnering & employee relations",p:"Partnering with senior leadership, Managing Directors and cross-functional teams on how people experience the firm.",li:["Handle employee grievances and coordinate resolution with the right stakeholders","Maintain employee data and workforce trackers","Work with HR, Recruitment, Finance and technical functions on people priorities"]},
+ {n:"Engagement & retention",h:"Engagement & retention",p:"Tailored engagement that people actually show up for, tied to retention.",li:["Drive tailored engagement initiatives, with an average 34% increase in event participation","Track Great Place to Work® survey insights, supporting consecutive certifications","Contributed to retention initiatives associated with regretted attrition falling from 15% to 8%"]},
+ {n:"Town halls & QBRs",h:"Town halls & Quarterly Business Reviews",p:"Leadership-facing work that keeps the whole firm aligned.",li:["Run the quarterly firm-wide town hall, the forum where the firm shares updates on everything it does","Part of the Quarterly Business Reviews, presenting LeaderForge updates to leadership on behalf of the firm's most visible people team","Turn programme data into clear updates for senior management and Managing Directors"]},
+ {n:"Rewards & recognition",h:"Rewards & recognition",p:"I help decide how recognition runs at Wissen, and run it.",li:["Shape the design and cadence of the firm's rewards & recognition programme","Run quarterly R&R cycles and ceremonies for both the Talent Acquisition and Technology wings","Coordinate nominations and performance recognition","Release Amazon vouchers for events, contests and recognition across the firm"]},
+ {n:"POFU & joiner experience",h:"Post-offer follow-up & culture sessions (POFU)",p:"I'm the face of Wissen's culture for incoming joiners.",li:["Lead the culture & employee experience session for all joiners across every recruitment vertical","Run a session every 2–3 weeks, attended by senior management","Introduce joiners to how Wissen works: culture, LeaderForge, clubs, CSR and learning","Partner with recruitment and technical leads to keep candidates engaged between offer and joining"]},
+ {n:"People analytics & MIS",h:"People analytics, MIS & leaderboards",p:"We turned scattered engagement data into a structured system leadership can act on.",li:["With my team, restructured engagement data that had been scattered across trackers","Built a leaderboard for all ~30 teams covering attrition, event participation and other measures","Present the leaderboard monthly, so teams compete and gaps become visible early","Maintain engagement and attrition MIS and consolidate headcount, vacancy and recruitment data for leadership reviews","Excel (formulas, PivotTables) and working exposure to Power BI"]},
+ {n:"Employer branding",h:"Employer branding & reputation",p:"Working with the AmbitionBox team to strengthen Wissen's digital employer brand.",li:["Partner with AmbitionBox on Wissen's employer brand, with access to the company dashboard","Travelled to Pune to support a company shoot with senior management, including Managing Directors and Associate Directors","Run internal review, rating and survey campaigns across Google, Glassdoor and AmbitionBox","Results: Google rating up 0.8 to 3.9, Glassdoor and AmbitionBox up 0.5 each, and a clear rise in the number of reviews"]},
+ {n:"HR tech & automation",h:"HR technology & automation",p:"Working with engineering to automate manual HR work.",li:["Built the LeaderForge leaderboard into a web app with the engineering team: scores update dynamically and calculate automatically","Automating the SharePoint intranet into a one-stop platform for culture, events and HR news","Run our team's Viva Engage channel on my own"]},
+ {n:"Comms & learning",h:"Internal communications & learning",p:"Turning organisational goals into messages and programmes people act on.",li:["Firm-wide emailers and announcements; I run our team's Viva Engage channel on my own","Partner with L&D on Training Needs Analysis, capability building and employee development","Coordinated Navigating My Next Me for VectorFlow and logistics for Develocity training"]}
+];
+const at=document.getElementById("areatabs"),ap=document.getElementById("areapanel");
+A.forEach((x,i)=>{const b=document.createElement("button");b.role="tab";b.id="at"+i;b.innerHTML=`<span>${String(i+1).padStart(2,"0")}</span>${x.n}`;b.onclick=()=>selA(i);at.appendChild(b);});
+function selA(i,focus){at.querySelectorAll("button").forEach((b,j)=>{b.setAttribute("aria-selected",j===i);b.tabIndex=j===i?0:-1;});const x=A[i];ap.setAttribute("aria-labelledby","at"+i);ap.classList.remove("in");void ap.offsetWidth;ap.classList.add("in");ap.innerHTML=`<h3>${x.h}</h3><p>${x.p}</p><ul class="ticks">${x.li.map(l=>`<li>${l}</li>`).join("")}</ul>`;if(focus)at.children[i].focus();}
+at.addEventListener("keydown",e=>{const cur=[...at.children].findIndex(b=>b.getAttribute("aria-selected")==="true");if(["ArrowDown","ArrowRight"].includes(e.key)){e.preventDefault();selA((cur+1)%A.length,1);}if(["ArrowUp","ArrowLeft"].includes(e.key)){e.preventDefault();selA((cur-1+A.length)%A.length,1);}});
+selA(0);
+
+/* pillars */
+document.querySelectorAll(".pillar").forEach(p=>p.addEventListener("click",()=>p.setAttribute("aria-expanded",p.getAttribute("aria-expanded")!=="true")));
+
+/* playbook */
+const PB=[
+ ["Spot the need","Listen first: survey insights, participation trends and conversations tell me where people need something.","Mental health was a conversation people weren't having at work, and World Mental Health Day was coming up."],
+ ["Shape the idea","Start from scratch: the format, the message and the partners who make it credible.","Three lenses instead of one: psychology, yoga and spirituality, because there is no one-size-fits-all approach."],
+ ["Rally people","Bring stakeholders, partners and the right voices on board, then tell the firm in a way that makes them want to come.","Co-facilitation with L&D, Isha Foundation volunteers, and 1to1help's free therapy support on the agenda."],
+ ["Run the day","Logistics, hybrid set-up and facilitation, so the room and the screen both feel included.","A hybrid session in Bengaluru with other offices on Teams, built around “Leave It in the Basket”, an activity I designed."],
+ ["Close the loop","Track who came, read what it tells us, and keep the conversation going after the day.","40+ participants, and a Wellness Club community that keeps the conversation going."]
+];
+const tr=document.getElementById("track"),fill=document.getElementById("fill"),how=document.getElementById("pbHow"),ex=document.getElementById("pbEx");let pbI=0,pbT;
+PB.forEach((p,i)=>{const b=document.createElement("button");b.className="step";b.role="tab";b.innerHTML=`<b>${i+1}</b><span>${p[0]}</span>`;b.onclick=()=>{clearInterval(pbT);selPb(i);};tr.appendChild(b);});
+function selPb(i){pbI=i;tr.querySelectorAll(".step").forEach((b,j)=>{b.setAttribute("aria-selected",j===i);b.classList.toggle("done",j<i);});fill.style.width=(i/(PB.length-1)*92)+"%";
+  how.innerHTML=`<div class="in"><div class="kicker">How I do it</div><p>${PB[i][1]}</p></div>`;ex.innerHTML=`<div class="in"><div class="kicker">On World Mental Health Day</div><p>${PB[i][2]}</p></div>`;}
+selPb(0);
+if(!reduce){const o3=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!pbT){pbT=setInterval(()=>selPb((pbI+1)%PB.length),3800);}},{threshold:.5});o3.observe(tr);}
+
+/* themes gallery */
+const T=[
+ {id:"sports",name:"Sports-based engagement",c:"#3651F0",sum:"Franchise-style leagues that turn colleagues into teammates across offices. The most successful format so far, now run under the Wissen Sports Guild.",
+  st:[["150+","cricket participants, one location"],["120+","badminton participants, one location"],["2 cities","Bengaluru and Mumbai, similar turnout"]],
+  ph:[["s06_1","Premier Badminton League, Bangalore"],["s06_2","Bangalore league winners"],["s06_3","Bangalore league finalists"],["s07_1","Premier Badminton League, Mumbai"],["s07_2","Mumbai league winners"],["s07_3","Mumbai organising committee"]],
+  ev:[["Premier Badminton League, Bangalore","Aug 2026","A franchise-style tournament with a live player auction, league matches, knockouts and finals, then trophies and celebrations. 120+ participants from this location alone."],["Premier Badminton League, Mumbai","Sep 2026","The first Mumbai edition, run end to end by an employee organising committee. Turnout matched Bengaluru, which shows the format travels."],["WPCL Season 2","Wissen Cricket Premier League","I coordinated the second season of the firm's cricket league. Cricket drew 150+ participants from a single location."]]},
+ {id:"wellness",name:"Wellness & mental health",c:"#0F8A6A",sum:"A year-round calendar across physical, mental and emotional well-being.",
+  st:[["5","expert-led sessions in 2026"],["40+","joined World Mental Health Day"],["Hybrid","in person and online"],["Isha Foundation","yoga and meditation partner"]],
+  ph:[["yoga_1","Yoga at the office"],["yoga_2","Desk-side yoga and stretching"],["s08_1","Wellness Club session"],["s08_2","Participants at a wellness session"],["s08_3","Mindful living session"],["s09_2","World Mental Health Day in Bengaluru"],["s09_3","Isha Foundation volunteer on stress management"]],
+  ev:[["Expert-led wellness sessions","2026 · Wellness Club","We look for speakers with real depth in wellness, including colleagues from within the firm, and turn their expertise into an event for everyone. Topics so far: emotional well-being and self-awareness, yoga and meditation, stress and mental health, healthy weight and metabolic health, and plant-based nutrition with a food tasting. Each session is open in person and online."],["World Mental Health Day","Oct 2026","Led by me, from concept to execution. <a href='#wmhd'>Read the case study ↑</a>",1],["Vegan Month: The Vegan Byte","With the Wellness Club","I coordinated a month on plant-based eating and well-being."],["Yoga & mindfulness","Apr – Sep 2026","In-office yoga and stretching, International Day of Yoga, and classical Hatha Yoga and Angamardana with Isha Foundation across offices."],["Wellness mentorship","Sep 2026","Voluntary, confidential mentoring on holistic well-being with senior leaders."]]},
+ {id:"culture",name:"Culture & celebrations",c:"#FF5E4D",sum:"Small moments that build appreciation, connection and belonging.",
+  ph:[["fathers_cake","Father's Day at Wissen"],["ramp","Cultural ramp walk, 10 Glorious Years"],["s12_1","Thank You Week appreciation wall"],["s12_2","Celebration and cake cutting"],["s12_3","Father's Day celebration"],["s13_1","Engineering Day session"],["s13_2","Wissen's first Engineering Day"]],
+  ev:[["Thank You Week","Apr 2026","Appreciation notes, chocolates and employee-led Viva Engage posts across offices."],["Mother's Day, Father's Day & Guru Purnima","May – Jul 2026","Reflections, appreciation moments and stories of mentorship and gratitude."],["Engineering Day","2026","Wissen's first: engineers on how the craft has evolved, then games on logic and quick thinking."],["10 Glorious Years","Firm milestone","Event management, facilitation, networking, marketing and branding for Wissen's 10-year celebration. <a href='#tgy'>More ↑</a>",1],["LeaderForge outings","Bengaluru & Mumbai","Team outings I coordinated with business-unit and team representatives."]]},
+ {id:"csr",name:"CSR & giving",c:"#0E7490",sum:"Volunteering and giving that connect employees to the community. A few of many.",
+  st:[["₹30,000","essentials donated to Swanthana"],["30","girls engaged on Children's Day"],["~15","volunteers on Literacy Day"]],
+  ph:[["../csr_swanthana_2","At Swanthana on Children's Day"],["../csr_literacy","International Literacy Day"],["s15_4","Volunteers and students at Yamaluru Government School"]],
+  ev:[["Children's Day at Swanthana","Wissen volunteers","Donated groceries and essentials worth ₹30,000 on behalf of Wissen, with a LeaderForge team, and spent the day dancing, singing and playing games with 30 girls. <a href='#community'>Videos ↓</a>"],["International Literacy Day","Sep 2026","8 Sep 2026. About 15 volunteers from HR, finance and technology visited Yamaluru Government School with Agastya International Foundation: stationery the school asked for, chocolates, games, and a talk on career options. <a href='#community'>More ↓</a>"],["Diwali CSR, Pune","I coordinated","Donation and volunteering activities in Pune."],["Joy of Giving","Donation drives","Firm-wide donation drives under LeaderForge."]]},
+ {id:"creative",name:"Creative contests",c:"#C98A0E",st:[["80+","entries received"],["1 winner","per location"],["Amazon","vouchers as prizes"]],
+  sum:"People often leave their hobbies behind when they enter corporate life. These contests let employees reconnect with their childhood selves and college-year passions, and both drew an overwhelming response.",
+  ph:[["s14_3","Photography Week entry"],["s14_4","Photography Week entry"],["s14_5","Canvas of Freedom entry"],["s14_6","Canvas of Freedom entry"]],
+  ev:[["Wissen Photography Week","Jun 2026","Seeing Wissen through our people's eyes: nature, nostalgia, home and work. An engagement event built to bring out a hobby. It drew 80+ submissions, all evaluated, with one winner per location and Amazon vouchers as prizes."],["Canvas of Freedom","Aug 2026","Where Independence Day met AI and technology, in painting, sketching and oil pastels. Another hobby-led engagement event, with an overwhelming response, evaluated entries, one winner per location and Amazon vouchers as prizes."]]},
+ {id:"clubs",name:"Employee clubs",c:"#B4541A",sum:"Interest-led clubs that give people a reason to connect beyond their project.",
+  st:[["4","active clubs"],["Hybrid","in person and virtual"]],
+  ph:[["s06_2","Sports Guild: league winners"],["s08_1","Wellness Club session"],["s11_1","Public Speaking Club session"],["ramp","Cultural Club: ramp walk"]],
+  ev:[["Wissen Sports Guild","Cricket and badminton leagues","The home for our franchise-style leagues. Both formats were built in one city and then repeated in another with the same turnout."],["Wellness Club","I prepare the emailers","I consolidate details of wellness retreats and programmes across the city and share them with colleagues through regular emailers."],["Public Speaking Club","I host the sessions","Started on the Toastmasters format. I host it and have turned it into interactive training: workshops, real-time examples and a comfortable room, so nobody feels out of place.",1],["Cultural Club","Dance and music","A club for colleagues who love dancing and singing."]]},
+ {id:"learning",name:"Storytelling, talks & learning",c:"#9333EA",sum:"Spaces for employees to find their voice and keep growing.",
+  ph:[["s11_1","Speak To Inspire: storytelling exercise"],["s11_3","Think of a moment, not a milestone"],["s19_1","Wissen Talks speakers"],["s19_2","Wissen Talks in session"]],
+  ev:[["Navigating My Next Me","VectorFlow","An employee development session I co-facilitated."],["Speak To Inspire: The Art of Storytelling","Jul 2026 · Virtual","A Public Speaking Club session on storytelling, confidence and communication."],["Wissen Talks","Sep 2026","Senior leaders on pivotal moments, leading without authority and career growth, in an open forum."]]},
+ {id:"ai",name:"Hackathons & AI innovation",c:"#4F46E5",sum:"Moving employees from Gen AI curiosity to working solutions.",
+  ph:[["s18_1","Gen AI Spot Hackathon participants"]],
+  ev:[["#InnoWissen Gen AI Spot Hackathon Series","2026 · Firmwide · In the news","A four-part series to explore AI-led ideas, experiment and build working solutions together. Featured in CXO Today and Business News This Week. <a href='#press'>Coverage ↑</a>"],["Wissen AI Showcase Series","May – Jun 2026","Real-world AI use cases that teams can apply in their own projects."]]}
+];
+const tw=document.getElementById("themes"),tc=document.getElementById("themechips"),ALLPH=[];
+const SHORT={sports:"Sports",wellness:"Wellness",culture:"Culture",csr:"CSR",clubs:"Clubs",creative:"Creative",learning:"Talks & learning",ai:"Hackathons & AI"};
+tc.innerHTML='<button class="chip" aria-pressed="true" data-p="all">All</button>'+T.map(t=>`<button class="chip" aria-pressed="false" data-p="${t.id}">${SHORT[t.id]}</button>`).join("");
+T.forEach(t=>{const sec=document.createElement("article");sec.className="theme";sec.dataset.f=t.id;sec.style.setProperty("--c",t.c);
+  const phs=t.ph.map(([f,cap])=>{ALLPH.push([f,cap,t.name]);return `<button class="ph" data-k="${ALLPH.length-1}" aria-label="Open photo: ${cap}"><img src="img/lf/${f}.jpg" alt="${cap}"></button>`}).join("");
+  sec.innerHTML=`<header><h4>${t.name}</h4><p>${t.sum}</p></header>${t.st?`<div class="glance">${t.st.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div>`:""}${phs?`<div class="strip">${phs}</div>`:""}<ul class="evs">${t.ev.map(e=>`<li class="ev" data-open="false"><button aria-expanded="false"><span>${e[3]?'<span class="tag">Led</span> ':""}<b>${e[0]}</b><small>${e[1]}</small></span><span class="plus" aria-hidden="true">+</span></button><p>${e[2]}</p></li>`).join("")}</ul>`;tw.appendChild(sec);});
+tw.addEventListener("click",e=>{const ph=e.target.closest(".ph");if(ph){openLb(+ph.dataset.k);return;}const b=e.target.closest(".ev button");if(b){const li=b.parentElement,o=li.dataset.open!=="true";li.dataset.open=o;b.setAttribute("aria-expanded",o);}});
+wire("#themechips","p",()=>tw.querySelectorAll(".theme"));
+const lb=document.getElementById("lb"),lbimg=document.getElementById("lbimg"),lbcap=document.getElementById("lbcap");let lk=0,lastFocus;
+function openLb(k){delete lb.dataset.single;lk=k;lbimg.src="img/lf/"+ALLPH[k][0]+".jpg";lbimg.alt=ALLPH[k][1];lbcap.textContent=ALLPH[k][2]+" · "+ALLPH[k][1];if(lb.hidden){lastFocus=document.activeElement;lb.hidden=false;document.getElementById("lbx").focus();}}
+function closeLb(){lb.hidden=true;delete lb.dataset.single;if(lastFocus)lastFocus.focus();}
+document.querySelectorAll(".res-img,.zoom").forEach(b=>b.addEventListener("click",()=>{lastFocus=b;lbimg.src=b.dataset.src;lbimg.alt=b.dataset.cap;lbcap.textContent=b.dataset.cap;lb.hidden=false;lb.dataset.single="1";document.getElementById("lbx").focus();}));
+document.getElementById("lbx").onclick=closeLb;document.getElementById("lbn").onclick=()=>openLb((lk+1)%ALLPH.length);document.getElementById("lbp").onclick=()=>openLb((lk-1+ALLPH.length)%ALLPH.length);
+lb.addEventListener("click",e=>{if(e.target===lb)closeLb();});
+document.addEventListener("keydown",e=>{if(lb.hidden)return;if(e.key==="Escape")closeLb();if(lb.dataset.single)return;if(e.key==="ArrowRight")openLb((lk+1)%ALLPH.length);if(e.key==="ArrowLeft")openLb((lk-1+ALLPH.length)%ALLPH.length);});
+
+/* videos: play while visible */
+const vids=document.querySelectorAll("video.clip-v");
+if(reduce){vids.forEach(v=>v.controls=true);}
+else if("IntersectionObserver" in window){const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{v.controls=true;});}else v.pause();}),{threshold:.4});vids.forEach(v=>vo.observe(v));}
+/* WMHD gallery + steps */
+const G=[["img/wmhd-4.jpg","Explaining the activity to the room and to colleagues online.","Aryan explaining the activity, holding the basket"],["img/wmhd-1.jpg","Facilitating “Leave It in the Basket”, with Bengaluru in the room and other offices on Teams.","Aryan facilitating the session, holding the basket"],["img/wmhd-2.jpg","Opening the conversation: there is no one-size-fits-all approach to well-being.","Aryan speaking to participants"],["img/wmhd-3.jpg","Collecting the folded notes.","Aryan holding the basket of notes"],["img/wmhd-poster.jpg","The event poster: Wellness Club with Isha Foundation and the Chief of Staff team.","World Mental Health Day at Wissen Technology poster"]];
+const gimg=document.getElementById("gimg"),gcap=document.getElementById("gcap"),gb=document.querySelectorAll(".gdots button");let gi=0,gt;
+function show(i){gi=i;gimg.src=G[i][0];gimg.alt=G[i][2];gcap.textContent=G[i][1];gimg.parentElement.classList.toggle("wide",i===G.length-1);gb.forEach((b,j)=>b.setAttribute("aria-pressed",j===i));}
+gb.forEach(b=>b.addEventListener("click",()=>{clearInterval(gt);show(+b.dataset.i);}));G.forEach(g=>{const im=new Image();im.src=g[0];});
+if(!reduce)gt=setInterval(()=>show((gi+1)%G.length),5000);
+const SN=["Name, privately and without judgement, the thing that's weighing on you.","Fold it. It stays anonymous: nobody needs to read it for it to count.","Place it in the basket with everyone else's. You're not the only one carrying something.","The point isn't to throw it away. It's to admit it's there. What comes next is yours: support, meditation, reflection, or another way forward."];
+const sb=document.querySelectorAll("#steps button"),sn=document.getElementById("stepnote");
+sb.forEach(b=>b.addEventListener("click",()=>{sb.forEach(o=>o.setAttribute("aria-pressed",o===b));sn.textContent=SN[+b.dataset.s];}));
+
+/* journey */
+const J=[
+ {f:"work",when:"Apr 2026 – now",t:"Associate Executive, Chief of Staff Office",o:"Wissen Technology · Bengaluru",d:["Shining Star Award (2026–27 Q1) and a Team Award. Co-lead LeaderForge 2.0, own the quarterly town hall and annual rewards & recognition, and lead post-offer engagement and assimilation.","Maintain engagement and attrition MIS, handle grievances and partner with L&D on Training Needs Analysis. <a href='#work'>More ↑</a>"]},
+ {f:"work",when:"Dec 2025 – Mar 2026",t:"Trainee, Chief of Staff Office",o:"Wissen Technology",d:["Moved into the Chief of Staff Office, the firm's most visible team, within six months of joining."]},
+ {f:"teach",when:"2025",t:"Final round, Teach For India Fellowship",o:"Teach For India",d:["Reached the final-stage Assessment Centre: sample teaching, critical thinking, a group activity and an interview.","Chose Wissen instead, for broader exposure to HR across the employee lifecycle."]},
+ {f:"work",when:"Jun – Nov 2025",t:"Trainee, Talent Acquisition",o:"Wissen Technology",d:["End-to-end recruitment for clients including Morgan Stanley and Goldman Sachs: sourcing, screening, interview coordination, offer follow-up and background verification.","Tracked recruitment MIS (headcount, vacancies, pipelines, drop-offs, offer-to-join conversion) in Zoho ATS and Excel, and supported onboarding."]},
+ {f:"writing",when:"Apr – May 2025",t:"Social Media Content Intern",o:"Iconic Creative Company",d:["Developed social media content and campaigns across content strategy, brand communication and audience engagement."]},
+ {f:"lead",when:"Jun 2024 – Apr 2025",t:"Placement Coordinator",o:"Christ University, Bengaluru",d:["Coordinated campus recruitment drives with corporate recruiters, students and the university: schedules, candidate information and on-ground execution.","The communication bridge between recruiters and candidates."]},
+ {f:"teach",when:"2024",t:"Service Learning: media literacy",o:"Karnataka Public School, Adugodi · with Christ University",d:["With Alina Tom and Swastika Soni, introduced media literacy to grades 8 and 9, from newspapers and digital tools to responsible tech use.","The students designed their own magazine (Oct 2024). <a href='#teaching'>More ↑</a>"]},
+ {f:"writing",when:"Sep – Dec 2024",t:"Editor",o:"The Press Project",d:["Editorial role."]},
+ {f:"writing",when:"Aug – Dec 2024",t:"Editor, Health",o:"Perspective Magazine, Christ University",d:["Edited the health section of the university magazine."]},
+ {f:"writing",when:"Jun – Jul 2024",t:"Journalism Intern",o:"The Hindu · Bengaluru",d:["Researched and wrote articles on finance, science and corporate inclusivity, including a feature on workplace diversity and inclusive hiring. <a href='#bylines'>Bylines ↓</a>"]},
+ {f:"lead",when:"May 2023 – May 2024",t:"Student Council Representative",o:"Christ University",d:["Elected to the student council."]},
+ {f:"lead",when:"Jun 2023 – Jan 2024",t:"Master of Ceremonies",o:"Student Welfare Office, Christ University",d:["Hosted college-level events: public speaking, crowd management and thinking on my feet."]},
+ {f:"vol",when:"Feb – Jun 2023",t:"First Response Volunteer",o:"Spotlight",d:["Supporting easier access to mental well-being services."]},
+ {f:"teach",when:"Aug 2022 – Jun 2023",t:"Volunteer teacher",o:"Centre for Social Action, Christ University",d:["Travelled to project areas to teach students who don't always have the best learning facilities."]},
+ {f:"lead",when:"Aug 2022 – May 2023",t:"Class Representative",o:"Christ University",d:["Represented my class to faculty in first year."]},
+ {f:"edu",when:"2025",t:"Research paper & poster presentation",o:"Christ University · Psychology",d:["A quantitative study of parenting styles, peer pressure and alcohol use among Bengaluru college students. <a href='#research'>Details ↑</a>"]},
+ {f:"lead",when:"2024 – 25",t:"Theatre: two first places",o:"Christ University",d:["1st place, Street Play, DARPAN 2024. 1st place, Proscenium, Blossoms 2024–25. <a href='#stage'>More ↑</a>"]},
+ {f:"edu",when:"2022 – 2025",t:"BA, Psychology, Journalism & English",o:"Christ University, Bengaluru",d:["Batch valedictorian and first rank, GPA 3.6/4. Theatre alongside."]},
+ {f:"edu",when:"2021 – 2022",t:"CBSE Class XII, Science · 89%",o:"Bhartiyam International School, Rudrapur",d:["Science stream."]},
+ {f:"edu",when:"Jan 2021",t:"Republic Day Parade guest",o:"Hon'ble Prime Minister of India",d:["Invited for my rank in the Class X board exams, to watch the parade from the Prime Minister's Box at Rajpath, New Delhi."]},
+ {f:"edu",when:"2019 – 2020",t:"CBSE Class X · 99.4% · District topper",o:"Aryaman Vikram Birla Institute of Learning, Haldwani",d:["597 out of 600."]}
+];
+const LAB={work:"Work",writing:"Media",lead:"Leadership",vol:"Community",edu:"Education",teach:"Teaching"};
+const tl=document.getElementById("timeline");
+J.forEach((x,i)=>{const el=document.createElement("div");el.className="item c-"+x.f;el.dataset.f=x.f;
+  el.innerHTML=`<div class="when">${x.when}</div><span class="dot" aria-hidden="true"></span><div class="entry" data-open="${i<1}"><button aria-expanded="${i<1}"><div><div class="cat">${LAB[x.f]}</div><h3>${x.t}</h3><div class="org">${x.o}</div></div><span class="plus" aria-hidden="true">+</span></button><div class="detail">${x.d.map(p=>`<p>${p}</p>`).join("")}</div></div>`;tl.appendChild(el);});
+tl.addEventListener("click",e=>{const b=e.target.closest(".entry button");if(!b)return;const en=b.parentElement,o=en.dataset.open!=="true";en.dataset.open=o;b.setAttribute("aria-expanded",o);});
+wire("#jchips","f",()=>tl.querySelectorAll(".item"));
+
+/* bylines */
+const B=[
+ {f:"culture",t:"Corporate inclusivity for the LGBTQ+ community: A look beyond Pride Month",w:"with Abhilekh Baruah"},
+ {f:"city",t:"Authorities scramble to clear trees brought down by rain in Bengaluru",w:"with Vibha Rajeev, Parvati Nair"},
+ {f:"culture",t:"Embroidery of Dreams: Deepika Khatri's journey to Cannes",w:"solo byline"},
+ {f:"city",t:"Bengaluru Santhe, a far cry from the success of Dilli Haat",w:"with Adithi A."},
+ {f:"city",t:"Majestic Bus Station, a transport hub plagued by issues of hygiene, water and infrastructure",w:"with Aasaavari Mohana Gobburu"},
+ {f:"city",t:"Swimming pools in Bengaluru flouting BWSSB rules",w:"with Debasmita Chowdhury, Poorvi S"},
+ {f:"city",t:"New passageway opened at Majestic metro station to ease congestion",w:"with Parvati Nair"},
+ {f:"biz",t:"Akshaya Tritiya brings a gold rush into Bengaluru's jewellery stores",w:"with Adithi A."},
+ {f:"biz",t:"Summer drives up coconut prices in Bengaluru to ₹50 per piece",w:"with Aakansha Munshi"}
+];
+const BC={city:"c-work",biz:"c-edu",culture:"c-writing"},BN={city:"City & civic",biz:"Markets",culture:"Culture & workplace"};
+const clips=document.getElementById("clips");
+B.forEach(x=>{const a=document.createElement("article");a.className="clip "+BC[x.f];a.dataset.f=x.f;a.innerHTML=`<div class="cat">${BN[x.f]}</div><h3>${x.t}</h3><div class="by">Aryan Bhatt · ${x.w}</div>`;clips.appendChild(a);});
+wire("#bchips","b",()=>clips.querySelectorAll(".clip"));
+
+/* LeaderForge network */
+const GROUPS=["Nova Circuit","Binary Pulse","Silicon Trail","Cloud Core","Nexus Node","Signal Sync","Cipher Circle","Fusion Stack","Neural Grid","Horizon Stack","Neural Orbit","Logic Forge","Spark Protocol","Atlas Engine","Vector Flow","Titan Thread","Matrix Path","Logic Lane","Kernel Crew","Data Drift","Quantum Loop","Pulse Matrix","Pixel Forge","Vertex Wave","Quantum Hive","Code Current","Orbit Link","Byte Bridge","Echo Network","Agile Orbit"];
+const cv=document.getElementById("net"),cx=cv.getContext("2d"),netcap=document.getElementById("netcap");let nodes=[],hover=-1,W=0,H=0;
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function layout(){const r=cv.getBoundingClientRect();W=r.width;H=r.height;const d=devicePixelRatio||1;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);nodes=GROUPS.map((g,i)=>{const ring=i%2,a=i/GROUPS.length*Math.PI*2+(ring?0.1:0),rr=Math.min(W,H)*(ring?0.44:0.33);return {g,a,x:W/2+Math.cos(a)*rr,y:H/2+Math.sin(a)*rr};});}
+function draw(t){cx.clearRect(0,0,W,H);const acc=css("--accent"),line=css("--line"),ink=css("--ink"),mark=css("--mark"),hot=css("--hot"),card=css("--card");
+  nodes.forEach((n,i)=>{const w=reduce?0:Math.sin(t/900+i)*3;n.dx=n.x+Math.cos(n.a+1.6)*w;n.dy=n.y+Math.sin(n.a+1.6)*w;cx.strokeStyle=i===hover?acc:line;cx.lineWidth=i===hover?2:1;cx.beginPath();cx.moveTo(W/2,H/2);cx.lineTo(n.dx,n.dy);cx.stroke();});
+  if(!reduce){for(let k=0;k<7;k++){const ph=((t/2600)+k/7)%1,step=Math.floor(t/2600+k/7),a=nodes[(k*7+step)%nodes.length],b=nodes[(k*11+3+step)%nodes.length];cx.fillStyle=k%2?mark:hot;cx.globalAlpha=Math.sin(ph*Math.PI);cx.beginPath();cx.arc(a.dx+(b.dx-a.dx)*ph,a.dy+(b.dy-a.dy)*ph,3.2,0,7);cx.fill();cx.globalAlpha=1;}}
+  nodes.forEach((n,i)=>{cx.fillStyle=i===hover?hot:acc;cx.beginPath();cx.arc(n.dx,n.dy,i===hover?9:6,0,7);cx.fill();});
+  cx.fillStyle=card;cx.strokeStyle=acc;cx.lineWidth=3;cx.beginPath();cx.arc(W/2,H/2,50,0,7);cx.fill();cx.stroke();
+  cx.fillStyle=ink;cx.font="800 12px 'Plus Jakarta Sans', sans-serif";cx.textAlign="center";cx.fillText("WISSEN",W/2,H/2-3);cx.fillText("LEADERFORGE",W/2,H/2+13);
+  if(hover>=0){const n=nodes[hover];cx.font="700 13px Manrope, sans-serif";const w2=cx.measureText(n.g).width+16;let bx=Math.min(Math.max(n.dx-w2/2,4),W-w2-4),by=n.dy-34;if(by<4)by=n.dy+14;cx.fillStyle=ink;cx.beginPath();cx.roundRect(bx,by,w2,22,6);cx.fill();cx.fillStyle=css("--paper");cx.textAlign="left";cx.fillText(n.g,bx+8,by+15);}
+  if(!reduce)requestAnimationFrame(draw);}
+function pick(e){const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;let best=-1,bd=400;nodes.forEach((n,i)=>{const d=(n.dx-x)**2+(n.dy-y)**2;if(d<bd){bd=d;best=i;}});hover=best;netcap.textContent=best>=0?`${GROUPS[best]}: one of the LeaderForge teams`:"Hover over the network to meet the teams.";if(reduce)draw(0);}
+cv.addEventListener("pointermove",pick);cv.addEventListener("pointerdown",pick);cv.addEventListener("pointerleave",()=>{hover=-1;netcap.textContent="Hover over the network to meet the teams.";if(reduce)draw(0);});
+addEventListener("resize",()=>{layout();if(reduce)draw(0);});layout();draw(0);
+
+/* before/now toggle */
+document.querySelectorAll("#bnchips .chip").forEach(c=>c.addEventListener("click",()=>{document.querySelectorAll("#bnchips .chip").forEach(o=>o.setAttribute("aria-pressed",o===c));document.getElementById("auto").dataset.v=c.dataset.v;}));
+/* reveal on scroll: content is visible at rest; only nudges in */
+if(!reduce&&"IntersectionObserver" in window){const els=[...document.querySelectorAll("main section .sec-head, .imp, .ac, .aw-card, .pr, .testi, .lf, .pillar, .theme, .csr-card, .card, .honour, .sg, .role, .bridge li, .res-main, .res-side, .sl, .cross, .anna, .theatre, .tattva, .tgy-grid")];
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in-view");ro.unobserve(e.target);}}),{threshold:.12});
+  els.forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add("rv");ro.observe(el);}});}
+/* scroll progress + active nav */
+const prog=document.getElementById("prog"),navA=[...document.querySelectorAll("nav ul a")];
+function onScroll(){const h=document.documentElement;prog.style.transform=`scaleX(${h.scrollTop/((h.scrollHeight-h.clientHeight)||1)})`;let cur="";navA.forEach(a=>{const s=document.querySelector(a.getAttribute("href"));if(s&&s.getBoundingClientRect().top<140)cur=a.getAttribute("href");});navA.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===cur));}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+</script>
+
+</html>
