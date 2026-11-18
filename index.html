@@ -92,9 +92,9 @@ nav ul a:hover,nav ul a.active{color:var(--ink);box-shadow:0 2px 0 var(--mark)}
 .portrait img{position:relative;display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 24px 50px -24px rgba(14,26,58,.55)}
 .badge{position:absolute;z-index:2;background:var(--card);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--mark);border-radius:10px;padding:7px 12px;font-size:13px;font-weight:700;box-shadow:0 12px 26px -14px rgba(14,26,58,.45);animation:float 6s ease-in-out infinite;white-space:nowrap}
 .badge small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.b1{top:5%;left:-22%;animation-delay:0s}.b2{top:30%;right:-26%;animation-delay:-1.2s}.b3{top:54%;left:-18%;animation-delay:-2.4s}.b4{bottom:16%;right:-30%;animation-delay:-3.6s}.b5{bottom:-2%;left:-10%;animation-delay:-4.8s}
-@media (max-width:1100px){.b2,.b4{right:-12%}.b1,.b3{left:-12%}}
-@media (max-width:560px){.badge{font-size:11px;padding:5px 9px}.b1,.b3,.b5{left:-6%}.b2,.b4{right:-6%}}
+.b1{top:5%;left:-22%;animation-delay:0s}.b2{top:30%;right:-26%;animation-delay:-1.2s}.b3{top:54%;left:-18%;animation-delay:-2.4s}.b4{bottom:16%;right:-30%;animation-delay:-3.6s}.b5{bottom:-2%;left:-10%;animation-delay:-4.8s}.b6{top:-3%;right:-20%;animation-delay:-6s}
+@media (max-width:1100px){.b6{right:-8%}.b2,.b4{right:-12%}.b1,.b3{left:-12%}}
+@media (max-width:560px){.badge{font-size:11px;padding:5px 9px}.b1,.b3,.b5{left:-6%}.b2,.b4,.b6{right:-6%}}
 .marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--card);margin-top:46px}
 .marquee div{display:flex;gap:34px;width:max-content;padding:13px 0;animation:marquee 60s linear infinite;font-family:var(--display);font-weight:700;font-size:16px;color:var(--muted)}
 .marquee span{display:flex;align-items:center;gap:34px;white-space:nowrap}
@@ -543,6 +543,9 @@ nav ul a:hover,nav ul a.active{color:var(--ink);box-shadow:0 2px 0 var(--mark)}
 footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
 
 /* chapter bands */
+.range{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.range a{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--accent-soft);color:var(--accent);text-decoration:none;transition:transform .15s}
+.range a:hover{transform:translateY(-2px)}
 .chapter{margin-top:26px}
 .chapter .wrap{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;padding-block:14px;border-top:2px solid var(--ink)}
 .chapter b{font-family:var(--display);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
@@ -612,12 +615,13 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="kicker">Storyteller · People person · Jack of many trades</div>
+        <div class="kicker">Eclectic by design · Storyteller · People person</div>
         <h1 style="margin-top:16px">I'm a <span class="serif rot" id="rot">storyteller</span> who loves people.</h1>
-        <p class="lede">I'm Aryan Bhatt. My life has revolved around stories and the people in them: the zest of a room full of people, spreading joy, listening closely, and staying with someone else's pain. I've reported for The Hindu, directed award-winning theatre, taught in under-resourced classrooms and now shape employee experience for 2,500+ people at Wissen Technology.</p>
-        <p class="lede" style="margin-top:10px">A BA in Journalism, Psychology and English, with first rank at Christ University. Never one lane, on purpose.</p>
+        <p class="lede">I'm Aryan Bhatt, and I have never stayed in one lane on purpose. I'm drawn to stories and to the people inside them: the energy of a full room, the joy of making someone's day, the patience to listen, and the empathy to stay with someone's pain.</p>
+        <p class="lede" style="margin-top:10px">That curiosity took me from a degree in Journalism, Psychology and English to The Hindu, to award-winning theatre and to classrooms that needed teachers. Now it runs through the Chief of Staff Office at Wissen Technology, where I help shape the working lives of 2,500+ people.</p>
         <div class="cta">
           <a class="btn" href="#stories">Read my stories ↓</a>
+          <a class="btn ghost" href="#work">My corporate work ↓</a>
           <a class="btn ghost" href="https://www.thehindu.com/profile/author/aryan--bhatt-22676/" target="_blank" rel="noopener">My page at The Hindu ↗</a>
           <a class="btn ghost" href="#contact">Contact</a>
         </div>
@@ -630,6 +634,7 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
         <div class="badge b3"><small>The Hindu</small>Journalism intern</div>
         <div class="badge b4"><small>Christ University</small>First rank &amp; valedictorian</div>
         <div class="badge b5"><small>DARPAN</small>1st place, theatre</div>
+        <div class="badge b6"><small>Republic Day 2021</small>Invited by the Prime Minister</div>
       </div>
 </div>
     </div>
@@ -647,7 +652,7 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
       <div class="imp"><b data-count="34" data-suf="%">34%</b><span>average increase in event participation from tailored engagement</span></div>
       <div class="imp"><b>15% → 8%</b><div class="attr" aria-hidden="true"><i style="height:100%"></i><i style="height:53%" id="attr8"></i><em>regretted attrition</em></div><span>Contributed to retention initiatives behind this drop</span></div>
       <div class="imp"><b>GPTW®</b><span>Great Place to Work® certified in consecutive years. I track the survey insights behind it</span></div>
-      <div class="imp"><b class="sm">150+ · 120+</b><span>cricket and badminton players from a single office, with the same turnout in Mumbai</span></div>
+      <div class="imp"><b class="sm">150–200</b><span>employees in every cricket and badminton tournament I run end to end with my team</span></div>
       <div class="imp"><b>1st</b><span>place at DARPAN, the university's biggest fest, for a play I directed on parental pressure</span></div>
       <div class="imp"><b data-count="9">9</b><span>bylines in The Hindu, Bengaluru, across city, markets and culture</span></div>
       <div class="imp"><b>&lt; 1 yr</b><span>from Talent Acquisition trainee to the Chief of Staff Office, promoted to Associate Executive</span></div>
@@ -666,10 +671,10 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
     <div class="about-grid">
       <div class="about-text">
         <p class="big">Stories and people. Everything I've done comes back to those two.</p>
-        <p>I love the zest of being around people: a room full of them, a little joy spread around, a conversation where someone finally feels heard. I'm drawn to the harder side too, connecting with someone's pain and staying with it. That is why my path has never run down one lane.</p>
-        <p>I've reported for The Hindu, directed award-winning theatre, taught in under-resourced classrooms, hosted stages, run CSR drives and built engagement for a 2,500-person firm. The work looks different each time. The job is always the same: pay attention to people and help their story come out.</p>
+        <p>I'm at my best in a room full of people: sharing a little joy, listening properly, and helping someone feel heard. I also care about the harder moments, and I'm willing to sit with another person's pain rather than look away. That is why my path has never run down a single lane.</p>
+        <p>The range is intentional. I've reported for The Hindu, directed award-winning theatre, taught in under-resourced classrooms, hosted stages, led CSR drives and built engagement for a 2,500-person firm. The settings change but the work does not: pay attention to people and help their story come out. It also makes me quick to learn and easy to work with, in a newsroom or a boardroom.</p>
         <div class="values" aria-label="What I bring"><span>Storytelling</span><span>People first</span><span>Joy</span><span>Empathy</span><span>Curiosity</span><span>Range</span></div>
-        <p class="roles"><b>Open to roles in</b> storytelling and content, people and culture, partnerships, communications and creative work.</p>
+        <p class="roles"><b>Open to roles in</b> people and culture, employee experience, storytelling and content, communications, partnerships and creative work.</p>
       </div>
       <div class="threads" aria-label="Four threads">
         <a class="thread" href="#stories" style="--c:#FF5E4D"><b>Stories</b><span>Features, profiles and reporting. The Hindu, original pieces and brand content.</span><em>Read them →</em></a>
@@ -705,15 +710,8 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
       <div>
         <div class="kicker">Words &amp; stories</div>
         <h2>Stories I've told</h2>
-        <p class="lede">Journalism taught me to listen first. These are pieces I've reported, written and designed, from The Hindu to coursework. Several are original profiles of people I met along the way.</p>
+        <p class="lede">Journalism taught me to listen first. A few of my favourites, from coursework to brand work, with my published reporting at The Hindu just below. Two are original profiles of people I met along the way.</p>
         <div class="cta" style="margin-top:18px"><a class="btn" href="https://www.thehindu.com/profile/author/aryan--bhatt-22676/" target="_blank" rel="noopener">My page at The Hindu ↗</a></div>
-      </div>
-      <div class="chips" role="group" aria-label="Filter stories" id="schips">
-        <button class="chip" aria-pressed="true" data-f="all">All</button>
-        <button class="chip" aria-pressed="false" data-f="feat">Features &amp; profiles</button>
-        <button class="chip" aria-pressed="false" data-f="rep">Reporting &amp; opinion</button>
-        <button class="chip" aria-pressed="false" data-f="rev">Reviews &amp; media</button>
-        <button class="chip" aria-pressed="false" data-f="brand">Brand &amp; editing</button>
       </div>
     </div>
     <div class="shelf" id="shelf">
@@ -729,12 +727,6 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
         <p>Roshan Matthew trained for the Indian Army, lost the dream to an injury and six surgeries, and rebuilt himself into a speaker on recovery from failure.</p>
         <details class="more"><summary>More</summary><p>Reported through an online interview. The piece follows how he turned his lowest point into something that helps other people get through theirs.</p></details>
       </article>
-      <article class="story" data-f="feat" style="--c:#FF5E4D">
-        <div class="ty">Interview · Original</div>
-        <h3>Journalism: Not Around the Clock</h3>
-        <p>A media alumnus on why he left mainstream print for digital health writing: more time, and stories that travel further.</p>
-        <details class="more"><summary>More</summary><p>An online interview turned feature. 32 bylines in a 30-day internship, a column of his own, then a deliberate change of lane before cynicism set in.</p></details>
-      </article>
       <article class="story" data-f="rep" style="--c:#3651F0">
         <div class="ty">Op-Ed · Arts</div>
         <h3>Catharsis: brushing away majoritarian ideologies through the power of art</h3>
@@ -748,47 +740,17 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
         <p>Why retail inflation fell in August 2023 while food prices told a different story.</p>
         <details class="more"><summary>More</summary><p>An explainer comparing the headline CPI with the food price index, with views from economics faculty in Bengaluru and Haldwani. Numbers, context and a note of caution in one read.</p></details>
       </article>
-      <article class="story" data-f="rep" style="--c:#3651F0">
-        <div class="ty">Hard news</div>
-        <h3>Speeding car kills wall painter in Begur Koppa</h3>
-        <p>A hard-news report on a fatal road accident, placed against Bengaluru traffic-police data: 3,827 incidents and 777 deaths in 2022.</p>
-        <details class="more"><summary>More</summary><p>Facts first, then the eyewitness account, the police response and the wider trend. Written to news-desk structure.</p></details>
-      </article>
-      <article class="story" data-f="rep" style="--c:#3651F0">
-        <div class="ty">Editorial</div>
-        <h3>India’s Press Freedom Index: a concerning deterioration</h3>
-        <p>An editorial built on the RSF Press Freedom Index, where India ranked 142 of 180 in 2021.</p>
-        <details class="more"><summary>More</summary><p>Structured with clear headings and sourced to RSF, The Print, The Wire, the European Parliament and the US State Department. Written to argue a case, with references.</p></details>
-      </article>
       <article class="story" data-f="rev" style="--c:#9333EA">
         <div class="ty">Book review · SEO</div>
         <h3>“A Thousand Splendid Suns”: a must-read that remains relevant</h3>
         <p>A book review written for the web, with the title and keywords chosen to be found.</p>
         <details class="more"><summary>More</summary><p>A close reading of resilience, oppression and women’s rights, with 20+ keywords and phrases tracked through the text so it reaches readers searching for the book.</p></details>
       </article>
-      <article class="story" data-f="rev" style="--c:#9333EA">
-        <div class="ty">Film review & analysis</div>
-        <h3>The Wonderful Story of Henry Sugar</h3>
-        <p>A review and a separate film analysis of Wes Anderson’s 2023 Netflix adaptation of Roald Dahl.</p>
-        <details class="more"><summary>More</summary><p>The review weighs whimsy against audience patience. The analysis reads the theatrical, 2D staging as a storytelling choice, not a gimmick.</p></details>
-      </article>
-      <article class="story" data-f="rev" style="--c:#9333EA">
-        <div class="ty">Blog, podcast & design</div>
-        <h3>Words, audio and layout</h3>
-        <p>A blog post, a podcast episode, and magazine and newspaper layouts I designed in coursework.</p>
-        <details class="more"><summary>More</summary><div class="lnk"><a href="https://expandinghorizons241003.blogspot.com/2022/10/do-boys-not-study-anymore-in-our.html" target="_blank" rel="noopener">Blog post ↗</a><a href="https://drive.google.com/file/d/1migQ94PJuiDjYpjUhVKFbAbCD0aRQzxY/view?usp=sharing" target="_blank" rel="noopener">Podcast ↗</a><a href="https://drive.google.com/file/d/1k7gtYvLLqVlvcOmrnflbRE2Q5_ZTkUPs/view?usp=sharing" target="_blank" rel="noopener">Magazine ↗</a><a href="https://drive.google.com/file/d/177HOI5trUzgj-S60lhXeavYVKl7wYjJ0/view?usp=drive_link" target="_blank" rel="noopener">Newspaper ↗</a></div></details>
-      </article>
       <article class="story" data-f="brand" style="--c:#C98A0E">
         <div class="ty">Brand storytelling · Apr–May 2025</div>
         <h3>Social Media Content Intern, Iconic Creative Company</h3>
         <p>Ran a social media campaign to build a client’s brand presence and engagement.</p>
         <details class="more"><summary>More</summary><ul class="ticks"><li>Conceptualised and executed the campaign</li><li>Worked with the creative team to position the brand authentically through consistent visual and narrative strategy</li><li>Contributed to audience engagement and employer branding, vital for representing organisations well</li></ul></details>
-      </article>
-      <article class="story" data-f="brand" style="--c:#C98A0E">
-        <div class="ty">Editing</div>
-        <h3>Editor, Health, Perspective Magazine</h3>
-        <p>Edited the health section of the university magazine, and held an editorial role at The Press Project.</p>
-        <details class="more"><summary>More</summary><p>I also helped students at Karnataka Public School make their own magazine during Service Learning (Oct 2024).</p></details>
       </article>
     </div>
   </div>
@@ -916,9 +878,12 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
     <div class="sec-head">
       <div>
         <div class="kicker">Wissen Technology · Jun 2025 to now</div>
-        <h2>Role &amp; responsibilities</h2>
-        <p class="lede">I work with senior leadership, Managing Directors, recruitment and technical leads, Finance and L&amp;D to shape how 2,500+ people experience the firm, from offer letter to recognition on stage.</p>
+        <h2>One firm, many roles</h2>
+        <p class="lede">My corporate career has been as eclectic as the rest of me, and that was deliberate. I started in recruitment, placing talent with clients like Morgan Stanley and Goldman Sachs. It was a good start, but I wanted to work with people on a wider canvas. Within six months I was recognised and moved into the Chief of Staff Office, where I do many jobs at once.</p>
       </div>
+    </div>
+    <div class="range" aria-label="The range of work in one role">
+      <a href="#programmes">Event management</a><a href="#leaderforge">Employee engagement</a><a href="#leaderforge">Attrition and retention</a><a href="#hrtech">Dashboards and data</a><a href="#hrtech">Automation</a><a href="#awards">Rewards and recognition</a><a href="#work">Town halls</a><a href="#programmes">Employer branding</a><a href="#programmes">Wellness advocacy</a><a href="#programmes">CSR</a><a href="#work">Mentoring interns</a>
     </div>
     <div class="ladder" aria-label="Career progression at Wissen">
       <div class="rung"><small>Jun – Nov 2025</small><strong>Trainee, Talent Acquisition</strong></div>
@@ -1369,7 +1334,7 @@ footer{font-size:13px;color:var(--muted);padding:30px 0 50px}
     <div class="contact" id="contact">
       <div class="kicker" style="color:var(--mark);position:relative;z-index:1">Let's talk</div>
       <h2 style="margin-top:10px">Let's tell a good story together.</h2>
-      <p>Open to conversations about storytelling and content, people and culture, partnerships, communications and creative work.</p>
+      <p>Open to conversations about people and culture, employee experience, storytelling and content, communications, partnerships and creative work.</p>
       <div class="cta">
         <a class="btn" href="https://www.linkedin.com/in/aryan-bhatt-142241256/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
         <a class="btn ghost" href="mailto:aryanbhatt241003@gmail.com">Email me</a>
@@ -1418,7 +1383,7 @@ if(!reduce){hatT=setInterval(()=>selHat((hatI+1)%HATS.length),5000);hp.addEventL
 
 /* work areas */
 const A=[
- {n:"People partnering & ER",h:"People partnering & employee relations",p:"Partnering with senior leadership, Managing Directors and cross-functional teams on how people experience the firm.",li:["Handle employee grievances and coordinate resolution with the right stakeholders","Maintain employee data and workforce trackers","Work with HR, Recruitment, Finance and technical functions on people priorities"]},
+ {n:"People partnering & ER",h:"People partnering & employee relations",p:"Partnering with senior leadership, Managing Directors and cross-functional teams on how people experience the firm.",li:["Handle employee grievances and coordinate resolution with the right stakeholders","Maintain employee data and workforce trackers","Work with HR, Recruitment, Finance and technical functions on people priorities","Work with stakeholders at every level, from directors and Managing Directors to trainees and interns","Personally mentored two interns on my team"]},
  {n:"Engagement & retention",h:"Engagement & retention",p:"Tailored engagement that people actually show up for, tied to retention.",li:["Drive tailored engagement initiatives, with an average 34% increase in event participation","Track Great Place to Work® survey insights, supporting consecutive certifications","Contributed to retention initiatives associated with regretted attrition falling from 15% to 8%"]},
  {n:"Town halls & QBRs",h:"Town halls & Quarterly Business Reviews",p:"Leadership-facing work that keeps the whole firm aligned.",li:["Run the quarterly firm-wide town hall, the forum where the firm shares updates on everything it does","Part of the Quarterly Business Reviews, presenting LeaderForge updates to leadership on behalf of the firm's most visible people team","Turn programme data into clear updates for senior management and Managing Directors"]},
  {n:"Rewards & recognition",h:"Rewards & recognition",p:"I help decide how recognition runs at Wissen, and run it.",li:["Shape the design and cadence of the firm's rewards & recognition programme","Run quarterly R&R cycles and ceremonies for both the Talent Acquisition and Technology wings","Coordinate nominations and performance recognition","Release Amazon vouchers for events, contests and recognition across the firm"]},
@@ -1454,21 +1419,21 @@ if(!reduce){const o3=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!pbT
 
 /* themes gallery */
 const T=[
- {id:"sports",name:"Sports-based engagement",c:"#3651F0",sum:"Franchise-style leagues that turn colleagues into teammates across offices. The most successful format so far, now run under the Wissen Sports Guild.",
-  st:[["150+","cricket participants, one location"],["120+","badminton participants, one location"],["2 cities","Bengaluru and Mumbai, similar turnout"]],
+ {id:"sports",name:"Sports-based engagement",c:"#3651F0",sum:"Recurring cricket and badminton tournaments, sports days and an IPL-style auction, run end to end for 150–200 employees at a time.",
+  st:[["150–200","employees per tournament"],["End to end","registrations to trophies"],["IPL-style","player auctions"],["2 cities","Bengaluru and Mumbai"]],
   ph:[],
-  ev:[["Premier Badminton League, Bangalore","Aug 2026","A franchise-style tournament with a live player auction, league matches, knockouts and finals, then trophies and celebrations. 120+ participants from this location alone."],["Premier Badminton League, Mumbai","Sep 2026","The first Mumbai edition, run end to end by an employee organising committee. Turnout matched Bengaluru, which shows the format travels."],["WPCL Season 2","Wissen Cricket Premier League","I coordinated the second season of the firm's cricket league. Cricket drew 150+ participants from a single location."]]},
- {id:"wellness",name:"Wellness & mental health",c:"#0F8A6A",sum:"A year-round calendar across physical, mental and emotional well-being.",
+  ev:[["Premier Badminton League, Bangalore","Aug 2026","A franchise-style tournament with a live player auction, league matches, knockouts and finals, then trophies and celebrations."],["Premier Badminton League, Mumbai","Sep 2026","The first Mumbai edition, run end to end by an employee organising committee, with turnout that matched Bengaluru."],["WPCL Season 2","Wissen Cricket Premier League","I coordinated the second season of the firm's cricket league."],["How we run them","Every edition","Registrations, team formation and an IPL-style auction, then fixtures, umpiring and finals. I work with operations and admin on venues, t-shirts, equipment and logistics. Me and my team handle all of it, and it runs on a recurring calendar, including sports days."]]},
+ {id:"wellness",name:"Wellness & mental health",c:"#0F8A6A",sum:"A year-round calendar across physical, mental and emotional well-being, with a deliberate push for psychological health.",
   st:[["5","expert-led sessions in 2026"],["40+","joined World Mental Health Day"],["Hybrid","in person and online"],["Isha Foundation","yoga and meditation partner"]],
   ph:[["s08_3","Mindful living session"],["s09_3","Isha Foundation volunteer on stress management"]],
-  ev:[["Expert-led wellness sessions","2026 · Wellness Club","We look for speakers with real depth in wellness, including colleagues from within the firm, and turn their expertise into an event for everyone. Topics so far: emotional well-being and self-awareness, yoga and meditation, stress and mental health, healthy weight and metabolic health, and plant-based nutrition with a food tasting. Each session is open in person and online."],["World Mental Health Day","Oct 2026","Led by me, from concept to execution. <a href='#wmhd'>Read the case study ↑</a>",1],["Vegan Month: The Vegan Byte","With the Wellness Club","I coordinated a month on plant-based eating and well-being."],["Yoga & mindfulness","Apr – Sep 2026","In-office yoga and stretching, International Day of Yoga, and classical Hatha Yoga and Angamardana with Isha Foundation across offices."],["Wellness mentorship","Sep 2026","Voluntary, confidential mentoring on holistic well-being with senior leaders."]]},
+  ev:[["Expert-led wellness sessions","2026 · Wellness Club","We bring in speakers from external foundations and recognise colleagues with deep experience in counselling, coaching and mental health, then turn their expertise into an event for everyone, staying timely with the themes of the month. Topics so far: emotional well-being and self-awareness, yoga and meditation, stress and mental health, healthy weight and metabolic health, and plant-based nutrition with a food tasting. Each session is open in person and online."],["World Mental Health Day","Oct 2026","Led by me, from concept to execution. <a href='#wmhd'>Read the case study ↑</a>",1],["Vegan Month: The Vegan Byte","With the Wellness Club","I coordinated a month on plant-based eating and well-being."],["Yoga & mindfulness","Apr – Sep 2026","Yoga within the office, International Day of Yoga, and classical Hatha Yoga and Angamardana with Isha Foundation across offices."],["Wellness mentorship","Sep 2026","I identify colleagues with real expertise in wellness, counselling, coaching and mental health, and facilitate sessions that connect employees with them."],["Advocating for mental health","My addition to the calendar","Before I joined the team, wellness events focused on diet and physical fitness. I advocate for psychological well-being, so I brought it in, and facilitate sessions on it myself."]]},
  {id:"culture",name:"Culture & celebrations",c:"#FF5E4D",sum:"Small moments that build appreciation, connection and belonging.",
   ph:[["fathers_cake","Father's Day at Wissen"],["ramp","Cultural ramp walk, 10 Glorious Years"],["s12_1","Thank You Week appreciation wall"]],
-  ev:[["Thank You Week","Apr 2026","Appreciation notes, chocolates and employee-led Viva Engage posts across offices."],["Mother's Day, Father's Day & Guru Purnima","May – Jul 2026","Reflections, appreciation moments and stories of mentorship and gratitude."],["Engineering Day","2026","Wissen's first: engineers on how the craft has evolved, then games on logic and quick thinking."],["10 Glorious Years","Firm milestone","Event management, facilitation, networking, marketing and branding for Wissen's 10-year celebration. <a href='#tgy'>More ↑</a>",1],["LeaderForge outings","Bengaluru & Mumbai","Team outings I coordinated with business-unit and team representatives."]]},
- {id:"csr",name:"CSR & giving",c:"#0E7490",sum:"Volunteering and giving that connect employees to the community. A few of many.",
+  ev:[["Thank You Week","Apr 2026 · Conceptualised by me","A week of gratitude. People thanked each other with notes and photos pasted on an office wall, alongside chocolates and employee-led Viva Engage posts across offices."],["Mother's Day, Father's Day & Guru Purnima","May – Jul 2026","Reflections, appreciation moments and stories of mentorship and gratitude, planned so that technical and non-technical colleagues are equally included."],["Engineering Day","2026","Wissen's first: engineers on how the craft has evolved, then games on logic and quick thinking."],["10 Glorious Years","Firm milestone","Event management, facilitation, networking, marketing and branding for Wissen's 10-year celebration. <a href='#tgy'>More ↑</a>",1],["LeaderForge outings & team trainings","Bengaluru & Mumbai","I coordinate and facilitate team outings, dinners and the trainings teams run for themselves, then add a competitive edge with leaderboards and dashboards."]]},
+ {id:"csr",name:"CSR & giving",c:"#0E7490",sum:"We link notable days to giving back, so celebrations leave something behind. A few of many.",
   st:[["₹30,000","essentials donated to Swanthana"],["30","girls engaged on Children's Day"],["~15","volunteers on Literacy Day"]],
   ph:[],
-  ev:[["Children's Day at Swanthana","Wissen volunteers","Donated groceries and essentials worth ₹30,000 on behalf of Wissen, with a LeaderForge team, and spent the day dancing, singing and playing games with 30 girls. <a href='#community'>Videos ↓</a>"],["International Literacy Day","Sep 2026","8 Sep 2026. About 15 volunteers from HR, finance and technology visited Yamaluru Government School with Agastya International Foundation: stationery the school asked for, chocolates, games, and a talk on career options. <a href='#community'>More ↓</a>"],["Diwali CSR, Pune","I coordinated","Donation and volunteering activities in Pune."],["Joy of Giving","Donation drives","Firm-wide donation drives under LeaderForge."]]},
+  ev:[["Children's Day at Swanthana","Wissen volunteers","Donated groceries and essentials worth ₹30,000 on behalf of Wissen, with a LeaderForge team, and spent the day dancing, singing and playing games with 30 girls. <a href='#community'>Videos ↓</a>"],["International Literacy Day","Sep 2026","8 Sep 2026. About 15 volunteers from HR, finance and technology visited Yamaluru Government School with Agastya International Foundation: stationery the school asked for, chocolates, games, and a talk on career options. <a href='#community'>More ↓</a>"],["Diwali CSR","Across cities · I coordinated","Donation drives built around making diyas and lanterns, run across our cities."],["Joy of Giving","Donation drives","Firm-wide donation drives under LeaderForge."]]},
  {id:"creative",name:"Creative contests",c:"#C98A0E",st:[["80+","entries received"],["1 winner","per location"],["Amazon","vouchers as prizes"]],
   sum:"People often leave their hobbies behind when they enter corporate life. These contests let employees reconnect with their childhood selves and college-year passions, and both drew an overwhelming response.",
   ph:[["s14_3","Photography Week entry"],["s14_4","Photography Week entry"],["s14_5","Canvas of Freedom entry"],["s14_6","Canvas of Freedom entry"]],
@@ -1476,7 +1441,7 @@ const T=[
  {id:"clubs",name:"Employee clubs",c:"#B4541A",sum:"Interest-led clubs that give people a reason to connect beyond their project.",
   st:[["4","active clubs"],["Hybrid","in person and virtual"]],
   ph:[["s11_1","Public Speaking Club session"],["ramp","Cultural Club: ramp walk"]],
-  ev:[["Wissen Sports Guild","Cricket and badminton leagues","The home for our franchise-style leagues. Both formats were built in one city and then repeated in another with the same turnout."],["Wellness Club","I prepare the emailers","I consolidate details of wellness retreats and programmes across the city and share them with colleagues through regular emailers."],["Public Speaking Club","I host the sessions","Started on the Toastmasters format. I host it and have turned it into interactive training: workshops, real-time examples and a comfortable room, so nobody feels out of place.",1],["Cultural Club","Dance and music","A club for colleagues who love dancing and singing."]]},
+  ev:[["Wissen Sports Guild","Cricket and badminton leagues","The home for our franchise-style leagues. Both formats were built in one city and then repeated in another with the same turnout."],["Wellness Club","I prepare the emailers","I consolidate details of wellness retreats and programmes across the city and share them with colleagues through regular emailers."],["Public Speaking Club","I host the sessions","Built on the Toastmasters format, then made more interactive and free-flowing. I host it myself: workshops, real-time examples and personal topics that are easier to build on, so everyone feels comfortable speaking.",1],["Cultural Club","Dance and music","A club for colleagues who love dancing and singing."]]},
  {id:"learning",name:"Storytelling, talks & learning",c:"#9333EA",sum:"Spaces for employees to find their voice and keep growing.",
   ph:[["s11_1","Speak To Inspire: storytelling exercise"],["s11_3","Think of a moment, not a milestone"]],
   ev:[["Navigating My Next Me","VectorFlow","An employee development session I co-facilitated."],["Speak To Inspire: The Art of Storytelling","Jul 2026 · Virtual","A Public Speaking Club session on storytelling, confidence and communication."],["Wissen Talks","Sep 2026","Senior leaders on pivotal moments, leading without authority and career growth, in an open forum."]]},
